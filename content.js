@@ -4,9 +4,15 @@
     const INTERVAL_MS       = 45_000;
     const IDLE_THRESHOLD_MS = 50_000;
 
+    const DEFAULT_DAYS = Array.from({ length: 7 }, (_, i) => ({
+        active: i >= 1 && i <= 5,
+        start:  '09:00',
+        end:    '18:00',
+    }));
+
     let lastRealActivity = Date.now();
     let keepaliveId      = null;
-    let settings         = { enabled: true, useSchedule: false, startTime: '09:00', endTime: '18:00' };
+    let settings         = { enabled: true, useSchedule: false, days: DEFAULT_DAYS };
 
     ['mousemove', 'mousedown', 'keydown', 'touchstart', 'scroll'].forEach(type => {
         document.addEventListener(type, e => {
@@ -47,20 +53,24 @@
         }
     } catch (_) {}
 
+    function inRange(cur, start, end) {
+        // start > end means the range crosses midnight (e.g. 22:00–06:00)
+        return start <= end ? cur >= start && cur <= end
+                            : cur >= start || cur <= end;
+    }
+
     function isWithinSchedule() {
         if (!settings.enabled)     return false;
         if (!settings.useSchedule) return true;
 
-        const now = new Date();
-        const cur = now.getHours() * 60 + now.getMinutes();
-        const [sh, sm] = settings.startTime.split(':').map(Number);
-        const [eh, em] = settings.endTime.split(':').map(Number);
-        const start = sh * 60 + sm;
-        const end   = eh * 60 + em;
+        const now  = new Date();
+        const day  = (settings.days ?? DEFAULT_DAYS)[now.getDay()];
+        if (!day?.active) return false;
 
-        // start > end means the range crosses midnight (e.g. 22:00–06:00)
-        return start <= end ? cur >= start && cur <= end
-                            : cur >= start || cur <= end;
+        const cur            = now.getHours() * 60 + now.getMinutes();
+        const [sh, sm]       = day.start.split(':').map(Number);
+        const [eh, em]       = day.end.split(':').map(Number);
+        return inRange(cur, sh * 60 + sm, eh * 60 + em);
     }
 
     function getTarget() {
@@ -90,10 +100,9 @@
 
     keepaliveId = setInterval(pulse, INTERVAL_MS);
 
-    chrome.storage.sync.get(
-        { enabled: true, useSchedule: false, startTime: '09:00', endTime: '18:00' },
-        s => { settings = s; }
-    );
+    chrome.storage.sync.get({ enabled: true, useSchedule: false, days: DEFAULT_DAYS }, s => {
+        settings = s;
+    });
 
     chrome.storage.onChanged.addListener((changes, area) => {
         if (area !== 'sync') return;

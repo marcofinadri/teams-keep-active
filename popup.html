@@ -9,7 +9,7 @@
       font-family: -apple-system, 'Segoe UI', sans-serif;
       background: #1f1f2e;
       color: #e0e0f0;
-      width: 260px;
+      width: 310px;
       padding: 16px;
     }
 
@@ -22,15 +22,24 @@
       margin-bottom: 16px;
     }
 
+    h2 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #6668a0;
+      margin-bottom: 10px;
+    }
+
     .row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 16px;
     }
-
     .row label:first-child { font-size: 14px; }
 
+    /* Main toggle */
     .switch { position: relative; width: 38px; height: 22px; flex-shrink: 0; }
     .switch input { opacity: 0; width: 0; height: 0; }
     .slider {
@@ -52,30 +61,45 @@
     input:checked + .slider { background: #6264a7; }
     input:checked + .slider::before { transform: translateX(16px); }
 
+    /* Mini toggle for day rows */
+    .switch.mini { width: 30px; height: 18px; }
+    .switch.mini .slider::before { width: 12px; height: 12px; }
+    .switch.mini input:checked + .slider::before { transform: translateX(12px); }
+
     hr {
       border: none;
       border-top: 1px solid #2a2a40;
       margin-bottom: 16px;
     }
 
-    h2 {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: #6668a0;
-      margin-bottom: 12px;
-    }
+    /* Days grid */
+    #days-wrap { display: none; }
+    #days-wrap.visible { display: block; }
 
-    .time-grid {
+    .days-header,
+    .day-row {
       display: grid;
-      grid-template-columns: 40px 1fr;
+      grid-template-columns: 30px 34px 1fr 1fr;
+      gap: 0 6px;
       align-items: center;
-      gap: 8px 12px;
-      margin-bottom: 8px;
     }
 
-    .time-grid span {
+    .days-header {
+      margin-bottom: 6px;
+    }
+    .days-header span {
+      font-size: 10px;
+      color: #6668a0;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .days-header span:nth-child(1),
+    .days-header span:nth-child(2) { visibility: hidden; }
+
+    .day-row { margin-bottom: 7px; }
+    .day-row:last-child { margin-bottom: 0; }
+
+    .day-label {
       font-size: 13px;
       color: #9b9bc8;
     }
@@ -85,8 +109,8 @@
       border: 1px solid #3a3a5c;
       border-radius: 6px;
       color: #e0e0f0;
-      font-size: 14px;
-      padding: 5px 8px;
+      font-size: 12px;
+      padding: 4px 6px;
       cursor: pointer;
       width: 100%;
     }
@@ -95,13 +119,14 @@
       border-color: #6264a7;
     }
     input[type="time"]:disabled {
-      opacity: .35;
+      opacity: .3;
       cursor: default;
     }
 
     .hint {
       font-size: 11px;
       color: #6668a0;
+      margin-top: 8px;
       margin-bottom: 16px;
       line-height: 1.5;
     }
@@ -142,24 +167,26 @@
 
   <hr />
 
-  <h2>Active Hours</h2>
+  <h2>Schedule</h2>
 
   <div class="row">
-    <label for="useSchedule">Limit to a time range</label>
+    <label for="useSchedule">Limit to specific hours</label>
     <label class="switch">
       <input type="checkbox" id="useSchedule" />
       <span class="slider"></span>
     </label>
   </div>
 
-  <div class="time-grid">
-    <span>From</span>
-    <input type="time" id="startTime" value="09:00" disabled />
-    <span>To</span>
-    <input type="time" id="endTime" value="18:00" disabled />
+  <div id="days-wrap">
+    <div class="days-header">
+      <span></span>
+      <span></span>
+      <span>From</span>
+      <span>To</span>
+    </div>
+    <div id="days-grid"></div>
+    <p class="hint">Overnight ranges supported (e.g. 22:00 – 06:00).</p>
   </div>
-
-  <p class="hint">Overnight ranges are supported (e.g. 22:00 – 06:00).</p>
 
   <button id="save">Save</button>
   <div id="status"></div>
