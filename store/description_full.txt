@@ -1,0 +1,51 @@
+Teams Keep Active prevents Microsoft Teams from setting your status to Away when you step away from the keyboard — without moving your mouse, pressing keys, or leaving any visible trace.
+
+━━━ HOW IT WORKS ━━━
+
+Microsoft Teams detects inactivity through browser events and the Page Visibility API. When you switch tabs, minimize the window, or stop interacting, Teams quietly sets your status to Away after a few minutes.
+
+Teams Keep Active patches these detection mechanisms at the browser level:
+• Overrides the Page Visibility API so Teams always sees the tab as visible
+• Overrides document.hasFocus() so Teams always sees the window as focused
+• Sends a silent synthetic pointer event to Teams every 45 seconds — only when you have been genuinely idle, and only within your scheduled hours
+
+Everything runs inside the Teams tab itself. No background processes, no external servers, no data collected.
+
+━━━ FEATURES ━━━
+
+✦ Per-day scheduling
+   Set independent active hours for each day of the week. Enable Monday–Friday 9:00–18:00, leave weekends off, or configure any combination you need.
+
+✦ Overnight ranges
+   Ranges that cross midnight are fully supported (e.g. 22:00 → 06:00).
+
+✦ Master on/off switch
+   Disable the extension instantly without uninstalling it.
+
+✦ Real-time settings
+   Changes take effect immediately — no need to reload the Teams tab.
+
+✦ Zero visual interference
+   Nothing moves on screen. No cursor jumps, no flashing, no visible keyboard input.
+
+✦ Synced across devices
+   Settings are saved via chrome.storage.sync and follow you across all Chrome profiles signed in to the same Google account.
+
+━━━ COMPATIBILITY ━━━
+
+Works with:
+• Microsoft Teams web app (teams.microsoft.com) in Chrome, Edge, Brave, Arc, Opera, and all Chromium-based browsers
+• Microsoft Teams installed as a PWA from Chrome or Edge
+
+Does not work with:
+• Microsoft Teams Desktop App (Electron-based installer from microsoft.com)
+• The tab must remain open — the extension cannot act on a closed tab
+
+━━━ PRIVACY ━━━
+
+This extension collects no data, makes no network requests, and communicates with no external servers. Your schedule is stored locally in your browser via chrome.storage.sync (synced only between your own Chrome profiles). The source code is open and available on GitHub.
+
+━━━ PERMISSIONS ━━━
+
+• storage — to save and sync your schedule settings across devices
+No other permissions are requested.
