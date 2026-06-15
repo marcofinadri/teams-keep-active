@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, 'Segoe UI', sans-serif;
+      background: #1f1f2e;
+      color: #e0e0f0;
+      width: 260px;
+      padding: 16px;
+    }
+
+    h1 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: #9b9bc8;
+      margin-bottom: 14px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    label { font-size: 14px; }
+
+    /* Toggle switch */
+    .switch { position: relative; width: 38px; height: 22px; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; inset: 0;
+      background: #3a3a5c;
+      border-radius: 22px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .slider::before {
+      content: '';
+      position: absolute;
+      width: 16px; height: 16px;
+      left: 3px; bottom: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform .2s;
+    }
+    input:checked + .slider { background: #6264a7; }
+    input:checked + .slider::before { transform: translateX(16px); }
+
+    /* Time inputs */
+    .schedule-block {
+      background: #2a2a40;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 14px;
+      display: none;
+    }
+    .schedule-block.visible { display: block; }
+
+    .time-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .time-row:last-child { margin-bottom: 0; }
+
+    .time-row span { font-size: 13px; color: #9b9bc8; }
+
+    input[type="time"] {
+      background: #1f1f2e;
+      border: 1px solid #3a3a5c;
+      border-radius: 6px;
+      color: #e0e0f0;
+      font-size: 14px;
+      padding: 4px 8px;
+      width: 100px;
+      cursor: pointer;
+    }
+    input[type="time"]:focus {
+      outline: none;
+      border-color: #6264a7;
+    }
+
+    .hint {
+      font-size: 11px;
+      color: #6668a0;
+      margin-top: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 9px;
+      background: #6264a7;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    button:hover { background: #7b7dc8; }
+
+    #status {
+      font-size: 12px;
+      text-align: center;
+      margin-top: 10px;
+      color: #6264a7;
+      min-height: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Teams Keep Active</h1>
+
+  <div class="row">
+    <label for="toggle">Attivo</label>
+    <label class="switch">
+      <input type="checkbox" id="toggle" checked />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="row">
+    <label for="useSchedule">Fascia oraria</label>
+    <label class="switch">
+      <input type="checkbox" id="useSchedule" />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="schedule-block" id="scheduleBlock">
+    <div class="time-row">
+      <span>Dalle</span>
+      <input type="time" id="startTime" value="09:00" />
+    </div>
+    <div class="time-row">
+      <span>Alle</span>
+      <input type="time" id="endTime" value="18:00" />
+    </div>
+    <p class="hint">Funziona anche su fasce a cavallo della mezzanotte (es. 22:00 – 06:00).</p>
+  </div>
+
+  <button id="save">Salva</button>
+  <div id="status"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Teams Keep Active",
+  "version": "1.1.0",
+  "description": "Keeps Microsoft Teams status active by preventing idle detection.",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Teams Keep Active"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://teams.microsoft.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
