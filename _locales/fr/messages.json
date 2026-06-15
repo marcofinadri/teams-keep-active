@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Empêche Microsoft Teams de définir votre statut sur Absent."
+  },
+  "headerSubtitle": {
+    "message": "Empêche le statut Absent sur Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "Actif"
+  },
+  "statusOff": {
+    "message": "Désactivé"
+  },
+  "labelKeepActive": {
+    "message": "Rester actif"
+  },
+  "descKeepActive": {
+    "message": "Empêcher Teams de définir Absent"
+  },
+  "labelSchedule": {
+    "message": "Planification"
+  },
+  "descSchedule": {
+    "message": "Limiter à des jours et heures spécifiques"
+  },
+  "colFrom": {
+    "message": "De"
+  },
+  "colTo": {
+    "message": "À"
+  },
+  "hintOvernight": {
+    "message": "Plages nocturnes supportées (ex. $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "Enregistrer"
+  },
+  "savedOk": {
+    "message": "Enregistré ✓"
+  }
+}

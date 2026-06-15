@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Zapobiega ustawieniu statusu Niedostępny w Microsoft Teams."
+  },
+  "headerSubtitle": {
+    "message": "Zapobiega statusowi Niedostępny w Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "Aktywny"
+  },
+  "statusOff": {
+    "message": "Wyłączony"
+  },
+  "labelKeepActive": {
+    "message": "Pozostań aktywny"
+  },
+  "descKeepActive": {
+    "message": "Zapobiegaj ustawieniu Niedostępny przez Teams"
+  },
+  "labelSchedule": {
+    "message": "Harmonogram"
+  },
+  "descSchedule": {
+    "message": "Ogranicz do określonych dni i godzin"
+  },
+  "colFrom": {
+    "message": "Od"
+  },
+  "colTo": {
+    "message": "Do"
+  },
+  "hintOvernight": {
+    "message": "Zakresy nocne obsługiwane (np. $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "Zapisz ustawienia"
+  },
+  "savedOk": {
+    "message": "Zapisano ✓"
+  }
+}

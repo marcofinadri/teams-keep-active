@@ -1,0 +1,23 @@
+Teams Keep Active predotvrashaet ustanovku statusa «Net na meste» v Microsoft Teams kogda vy othodite ot klaviatury, bez dvizheniya myshi i vidimyh izmenenij.
+
+━━━ FUNKCII ━━━
+
+Raspisanie po dnjam: Ustanovite nezavisimye aktivnye chasy dlya kajdogo dnya nedeli.
+Nochnie intervaly: Podderzhivayutsya intervaly peresekayushie polnoch (napr. 22:00 -> 06:00).
+Glavny vyklyuchatel: Otkluchite rasshirenie mgnovenno bez udaleniya.
+Nastrojki v realnom vremeni: Izmeneniya vstupayut v silu nemedlenno.
+Bez vizualnyh pomeh: Nichego ne dvigaetsya na ekrane.
+Sinkhronizaciya: Nastrojki sinhroniziruyutsya cherez uchetnye zapisi Google Chrome.
+
+━━━ SOVMESTIMOST ━━━
+
+Rabotaet s Teams web i Teams PWA v Chrome/Edge.
+Ne rabotaet s desktopnym prilozheniem Teams (Electron).
+
+━━━ KONFIDENCIALNOST ━━━
+
+Dannye ne sobirrayutsya. Nastrojki hranyatsya lokalno. Iskhodny kod otkryt na GitHub.
+
+━━━ RAZRESHENIYA ━━━
+
+storage: dlya sohraneniya i sinhronizacii nastroek.

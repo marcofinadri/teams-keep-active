@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Mencegah Microsoft Teams menetapkan status Anda sebagai Tidak Hadir."
+  },
+  "headerSubtitle": {
+    "message": "Mencegah status Tidak Hadir di Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "Aktif"
+  },
+  "statusOff": {
+    "message": "Nonaktif"
+  },
+  "labelKeepActive": {
+    "message": "Tetap Aktif"
+  },
+  "descKeepActive": {
+    "message": "Cegah Teams menetapkan status Tidak Hadir"
+  },
+  "labelSchedule": {
+    "message": "Jadwal"
+  },
+  "descSchedule": {
+    "message": "Batasi hari dan jam tertentu"
+  },
+  "colFrom": {
+    "message": "Dari"
+  },
+  "colTo": {
+    "message": "Ke"
+  },
+  "hintOvernight": {
+    "message": "Rentang tengah malam didukung (mis. $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "Simpan pengaturan"
+  },
+  "savedOk": {
+    "message": "Tersimpan ✓"
+  }
+}

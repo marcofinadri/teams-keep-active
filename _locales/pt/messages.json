@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Impede que o Microsoft Teams defina seu status como Ausente."
+  },
+  "headerSubtitle": {
+    "message": "Impede o status Ausente no Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "Ativo"
+  },
+  "statusOff": {
+    "message": "Desativado"
+  },
+  "labelKeepActive": {
+    "message": "Manter ativo"
+  },
+  "descKeepActive": {
+    "message": "Impedir que o Teams defina Ausente"
+  },
+  "labelSchedule": {
+    "message": "Agendamento"
+  },
+  "descSchedule": {
+    "message": "Limitar a dias e horários específicos"
+  },
+  "colFrom": {
+    "message": "De"
+  },
+  "colTo": {
+    "message": "Até"
+  },
+  "hintOvernight": {
+    "message": "Intervalos noturnos suportados (ex. $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "Salvar configurações"
+  },
+  "savedOk": {
+    "message": "Salvo ✓"
+  }
+}

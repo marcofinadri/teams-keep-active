@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Предотвращает установку статуса «Нет на месте» в Microsoft Teams."
+  },
+  "headerSubtitle": {
+    "message": "Предотвращает статус «Нет на месте» в Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "Активен"
+  },
+  "statusOff": {
+    "message": "Выкл."
+  },
+  "labelKeepActive": {
+    "message": "Оставаться активным"
+  },
+  "descKeepActive": {
+    "message": "Запретить Teams ставить «Нет на месте»"
+  },
+  "labelSchedule": {
+    "message": "Расписание"
+  },
+  "descSchedule": {
+    "message": "Ограничить определёнными днями и часами"
+  },
+  "colFrom": {
+    "message": "С"
+  },
+  "colTo": {
+    "message": "До"
+  },
+  "hintOvernight": {
+    "message": "Ночные интервалы поддерживаются (напр. $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "Сохранить настройки"
+  },
+  "savedOk": {
+    "message": "Сохранено ✓"
+  }
+}

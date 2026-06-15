@@ -1,13 +1,43 @@
 'use strict';
 
+// ── i18n ─────────────────────────────────────────────────────────────────────
+const lang = chrome.i18n.getUILanguage();
+
+// RTL languages
+if (['ar', 'he', 'fa', 'ur'].includes(lang.split('-')[0])) {
+    document.documentElement.dir = 'rtl';
+}
+
+document.querySelectorAll('[data-i18n]').forEach(el => {
+    const msg = chrome.i18n.getMessage(el.dataset.i18n);
+    if (msg) el.textContent = msg;
+});
+
+// Locale-aware day names (Mon–Sun display order)
+// Jan 5 2025 = Sunday, so jsDay 0 → +0, jsDay 1 → +1, etc.
+function localDayName(jsDay) {
+    return new Intl.DateTimeFormat(lang, { weekday: 'short' })
+        .format(new Date(2025, 0, 5 + jsDay));
+}
+
+// Locale-aware time format for overnight hint
+function formatHint() {
+    const use12h = new Intl.DateTimeFormat(lang, { hour: 'numeric' })
+        .resolvedOptions().hour12;
+    const opts = use12h
+        ? { hour: 'numeric', minute: '2-digit', hour12: true }
+        : { hour: '2-digit', minute: '2-digit', hour12: false };
+    const t1 = new Intl.DateTimeFormat(lang, opts).format(new Date(2000, 0, 1, 22, 0));
+    const t2 = new Intl.DateTimeFormat(lang, opts).format(new Date(2000, 0, 1,  6, 0));
+    return chrome.i18n.getMessage('hintOvernight', [t1, t2]);
+}
+
+document.getElementById('hint-overnight').textContent = formatHint();
+
+// ── State ─────────────────────────────────────────────────────────────────────
 const DAYS = [
-    { idx: 1, label: 'Mon' },
-    { idx: 2, label: 'Tue' },
-    { idx: 3, label: 'Wed' },
-    { idx: 4, label: 'Thu' },
-    { idx: 5, label: 'Fri' },
-    { idx: 6, label: 'Sat' },
-    { idx: 0, label: 'Sun' },
+    { idx: 1 }, { idx: 2 }, { idx: 3 }, { idx: 4 },
+    { idx: 5 }, { idx: 6 }, { idx: 0 },
 ];
 
 const DEFAULT_DAYS = Array.from({ length: 7 }, (_, i) => ({
@@ -25,14 +55,14 @@ const saveStatus  = document.getElementById('save-status');
 const statusPill  = document.getElementById('status-pill');
 const statusLabel = document.getElementById('status-label');
 
-function toMinutes(hhmm) {
+// ── Schedule helpers ──────────────────────────────────────────────────────────
+function toMin(hhmm) {
     const [h, m] = hhmm.split(':').map(Number);
     return h * 60 + m;
 }
 
-function inRange(cur, start, end) {
-    return start <= end ? cur >= start && cur <= end
-                        : cur >= start || cur <= end;
+function inRange(cur, s, e) {
+    return s <= e ? cur >= s && cur <= e : cur >= s || cur <= e;
 }
 
 function computeActive(s) {
@@ -41,25 +71,25 @@ function computeActive(s) {
     const now = new Date();
     const day = (s.days ?? DEFAULT_DAYS)[now.getDay()];
     if (!day?.active) return false;
-    const cur = now.getHours() * 60 + now.getMinutes();
-    return inRange(cur, toMinutes(day.start), toMinutes(day.end));
+    return inRange(now.getHours() * 60 + now.getMinutes(), toMin(day.start), toMin(day.end));
 }
 
-function updateStatusPill(s) {
+function updatePill(s) {
     const on = computeActive(s);
-    statusPill.className = `status-pill ${on ? 'on' : 'off'}`;
-    statusLabel.textContent = on ? 'Active' : 'Off';
+    statusPill.className  = `status-pill ${on ? 'on' : 'off'}`;
+    statusLabel.textContent = chrome.i18n.getMessage(on ? 'statusActive' : 'statusOff');
 }
 
+// ── Days grid ─────────────────────────────────────────────────────────────────
 function buildGrid(days) {
     daysGrid.innerHTML = '';
-    DAYS.forEach(({ idx, label }) => {
+    DAYS.forEach(({ idx }) => {
         const d   = days[idx] ?? DEFAULT_DAYS[idx];
         const row = document.createElement('div');
         row.className   = `day-row ${d.active ? 'day-on' : ''}`;
         row.dataset.day = idx;
         row.innerHTML = `
-            <span class="day-name">${label}</span>
+            <span class="day-name">${localDayName(idx)}</span>
             <label class="toggle sm">
                 <input type="checkbox" class="day-toggle" ${d.active ? 'checked' : ''}>
                 <span class="toggle-track"></span>
@@ -90,6 +120,7 @@ function readDays() {
     return days;
 }
 
+// ── Init ──────────────────────────────────────────────────────────────────────
 useSchedule.addEventListener('change', () => {
     daysWrap.style.display = useSchedule.checked ? 'block' : 'none';
 });
@@ -99,7 +130,7 @@ chrome.storage.sync.get({ enabled: true, useSchedule: false, days: DEFAULT_DAYS 
     useSchedule.checked = s.useSchedule;
     buildGrid(s.days);
     if (s.useSchedule) daysWrap.style.display = 'block';
-    updateStatusPill(s);
+    updatePill(s);
 });
 
 saveBtn.addEventListener('click', () => {
@@ -109,8 +140,8 @@ saveBtn.addEventListener('click', () => {
         days:        readDays(),
     };
     chrome.storage.sync.set(s, () => {
-        updateStatusPill(s);
-        saveStatus.textContent = 'Saved ✓';
+        updatePill(s);
+        saveStatus.textContent = chrome.i18n.getMessage('savedOk');
         setTimeout(() => { saveStatus.textContent = ''; }, 1800);
     });
 });

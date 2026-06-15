@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Microsoft Teams'in durumunuzu Dışarıda olarak ayarlamasını engeller."
+  },
+  "headerSubtitle": {
+    "message": "Microsoft Teams'de Dışarıda durumunu engeller"
+  },
+  "statusActive": {
+    "message": "Etkin"
+  },
+  "statusOff": {
+    "message": "Kapalı"
+  },
+  "labelKeepActive": {
+    "message": "Etkin Tut"
+  },
+  "descKeepActive": {
+    "message": "Teams'in Dışarıda ayarlamasını engelle"
+  },
+  "labelSchedule": {
+    "message": "Program"
+  },
+  "descSchedule": {
+    "message": "Belirli gün ve saatlerle sınırla"
+  },
+  "colFrom": {
+    "message": "Başlangıç"
+  },
+  "colTo": {
+    "message": "Bitiş"
+  },
+  "hintOvernight": {
+    "message": "Gece yarısını geçen aralıklar desteklenir (örn. $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "Ayarları kaydet"
+  },
+  "savedOk": {
+    "message": "Kaydedildi ✓"
+  }
+}

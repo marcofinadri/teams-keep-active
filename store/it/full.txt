@@ -1,0 +1,29 @@
+Teams Keep Active impedisce a Microsoft Teams di impostare il tuo stato su Assente quando ti allontani dalla tastiera, senza muovere il mouse, premere tasti o lasciare tracce visibili.
+
+━━━ COME FUNZIONA ━━━
+
+Microsoft Teams rileva l'inattivita tramite gli eventi del browser e la Page Visibility API. Teams Keep Active sovrascrive questi meccanismi a livello browser impedendo che il tuo stato cambi.
+
+━━━ FUNZIONALITA ━━━
+
+Pianificazione per giorno: Imposta orari attivi indipendenti per ogni giorno della settimana.
+Intervalli notturni: Intervalli a cavallo della mezzanotte completamente supportati (es. 22:00 -> 06:00).
+Interruttore principale: Disabilita l'estensione istantaneamente senza disinstallarla.
+Impostazioni in tempo reale: Le modifiche hanno effetto immediato.
+Nessuna interferenza visiva: Niente si muove sullo schermo.
+Sincronizzato tra dispositivi: Le impostazioni si sincronizzano tra tutti i profili Chrome con lo stesso account Google.
+20 lingue supportate.
+
+━━━ COMPATIBILITA ━━━
+
+Funziona con: Teams web (teams.microsoft.com) su Chrome, Edge, Brave, Arc, Opera e Teams PWA.
+Non funziona con: Microsoft Teams Desktop App (Electron).
+Nota: La scheda deve restare aperta.
+
+━━━ PRIVACY ━━━
+
+Nessun dato raccolto. Nessuna richiesta di rete. Impostazioni salvate localmente. Codice sorgente aperto su GitHub.
+
+━━━ PERMESSI ━━━
+
+storage: per salvare e sincronizzare le impostazioni. Nessun altro permesso richiesto.

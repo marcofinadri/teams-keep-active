@@ -1,0 +1,36 @@
+Teams Keep Active prevents Microsoft Teams from setting your status to Away when you step away from the keyboard — without moving your mouse, pressing keys, or leaving any visible trace.
+
+━━━ HOW IT WORKS ━━━
+
+Microsoft Teams detects inactivity through browser events and the Page Visibility API. When you switch tabs, minimize the window, or stop interacting, Teams quietly sets your status to Away after a few minutes.
+
+Teams Keep Active patches these detection mechanisms at the browser level:
+• Overrides the Page Visibility API so Teams always sees the tab as visible
+• Overrides document.hasFocus() so Teams always sees the window as focused
+• Sends a silent synthetic pointer event every 45 seconds — only when you are genuinely idle and within your scheduled hours
+
+Everything runs inside the Teams tab itself. No background processes, no external servers, no data collected.
+
+━━━ FEATURES ━━━
+
+Per-day scheduling: Set independent active hours for each day of the week. Enable Monday-Friday 9:00-18:00, leave weekends off, or configure any combination you need.
+Overnight ranges: Ranges that cross midnight are fully supported (e.g. 22:00 to 06:00).
+Master on/off switch: Disable the extension instantly without uninstalling it.
+Real-time settings: Changes take effect immediately.
+Zero visual interference: Nothing moves on screen.
+Synced across devices: Settings sync across all Chrome profiles signed in to the same Google account.
+20 languages supported: English, Italian, German, French, Spanish, Portuguese, Russian, Japanese, Korean, Chinese Simplified, Arabic, Bengali, Hindi, Indonesian, Dutch, Polish, Thai, Turkish, Ukrainian, Vietnamese.
+
+━━━ COMPATIBILITY ━━━
+
+Works with: Microsoft Teams web app (teams.microsoft.com) in Chrome, Edge, Brave, Arc, Opera and Teams PWA.
+Does not work with: Microsoft Teams Desktop App (Electron-based).
+Note: The Teams tab must remain open.
+
+━━━ PRIVACY ━━━
+
+No data collected. No network requests. Settings stored locally via chrome.storage.sync. Source code open on GitHub.
+
+━━━ PERMISSIONS ━━━
+
+storage: to save and sync your schedule settings. No other permissions requested.

@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "防止 Microsoft Teams 将您的状态设置为“离开”。"
+  },
+  "headerSubtitle": {
+    "message": "防止 Microsoft Teams 显示“离开”状态"
+  },
+  "statusActive": {
+    "message": "已启用"
+  },
+  "statusOff": {
+    "message": "已禁用"
+  },
+  "labelKeepActive": {
+    "message": "保持在线"
+  },
+  "descKeepActive": {
+    "message": "防止 Teams 将状态设为离开"
+  },
+  "labelSchedule": {
+    "message": "计划"
+  },
+  "descSchedule": {
+    "message": "限制到特定天和时间"
+  },
+  "colFrom": {
+    "message": "从"
+  },
+  "colTo": {
+    "message": "至"
+  },
+  "hintOvernight": {
+    "message": "支持跨零点的时间范围（如 $FROM$ → $TO$）",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "保存设置"
+  },
+  "savedOk": {
+    "message": "已保存 ✓"
+  }
+}

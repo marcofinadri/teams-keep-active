@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Ngăn Microsoft Teams đặt trạng thái của bạn thành Vắng mặt."
+  },
+  "headerSubtitle": {
+    "message": "Ngăn trạng thái Vắng mặt trên Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "Đang hoạt động"
+  },
+  "statusOff": {
+    "message": "Tắt"
+  },
+  "labelKeepActive": {
+    "message": "Duy trì hoạt động"
+  },
+  "descKeepActive": {
+    "message": "Ngăn Teams đặt trạng thái Vắng mặt"
+  },
+  "labelSchedule": {
+    "message": "Lịch"
+  },
+  "descSchedule": {
+    "message": "Giới hạn theo ngày và giờ cụ thể"
+  },
+  "colFrom": {
+    "message": "Từ"
+  },
+  "colTo": {
+    "message": "Đến"
+  },
+  "hintOvernight": {
+    "message": "Hỗ trợ khoảng qua nửa đêm (ví dụ $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "Lưu cài đặt"
+  },
+  "savedOk": {
+    "message": "Đã lưu ✓"
+  }
+}

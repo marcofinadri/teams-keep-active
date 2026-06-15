@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Impedisce a Microsoft Teams di impostare il tuo stato su Assente."
+  },
+  "headerSubtitle": {
+    "message": "Impedisce lo stato Assente su Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "Attivo"
+  },
+  "statusOff": {
+    "message": "Spento"
+  },
+  "labelKeepActive": {
+    "message": "Mantieni attivo"
+  },
+  "descKeepActive": {
+    "message": "Impedisce a Teams di impostare Assente"
+  },
+  "labelSchedule": {
+    "message": "Pianificazione"
+  },
+  "descSchedule": {
+    "message": "Limita a giorni e orari specifici"
+  },
+  "colFrom": {
+    "message": "Da"
+  },
+  "colTo": {
+    "message": "A"
+  },
+  "hintOvernight": {
+    "message": "Supporta orari a cavallo della mezzanotte (es. $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "Salva impostazioni"
+  },
+  "savedOk": {
+    "message": "Salvato ✓"
+  }
+}

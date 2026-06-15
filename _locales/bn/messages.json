@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Microsoft Teams-কে আপনার স্ট্যাটাস ‘অনুপস্থিত’ হিসেবে সেট করতে বাধা দেয়।"
+  },
+  "headerSubtitle": {
+    "message": "Microsoft Teams-এ ‘অনুপস্থিত’ স্ট্যাটাস প্রতিরোধ করে"
+  },
+  "statusActive": {
+    "message": "সক্রিয়"
+  },
+  "statusOff": {
+    "message": "বন্ধ"
+  },
+  "labelKeepActive": {
+    "message": "সক্রিয় রাখুন"
+  },
+  "descKeepActive": {
+    "message": "Teams-কে Away সেট করতে বাধা দিন"
+  },
+  "labelSchedule": {
+    "message": "সময়সূচি"
+  },
+  "descSchedule": {
+    "message": "নির্দিষ্ট দিন ও সময়ে সীমাবদ্ধ করুন"
+  },
+  "colFrom": {
+    "message": "থেকে"
+  },
+  "colTo": {
+    "message": "পর্যন্ত"
+  },
+  "hintOvernight": {
+    "message": "মধ্যরাত পেরিয়ে যাওয়া সময়কাল সমর্থিত (যেমন $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "সেটিংস সংরক্ষণ করুন"
+  },
+  "savedOk": {
+    "message": "সংরক্ষিত ✓"
+  }
+}

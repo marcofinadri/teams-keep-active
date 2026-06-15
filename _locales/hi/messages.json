@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Microsoft Teams को आपकी स्थिति ‘अनुपस्थित’ पर सेट करने से रोकता है।"
+  },
+  "headerSubtitle": {
+    "message": "Microsoft Teams पर Away स्थिति रोकता है"
+  },
+  "statusActive": {
+    "message": "सक्रिय"
+  },
+  "statusOff": {
+    "message": "बंद"
+  },
+  "labelKeepActive": {
+    "message": "सक्रिय रखें"
+  },
+  "descKeepActive": {
+    "message": "Teams को Away सेट करने से रोकें"
+  },
+  "labelSchedule": {
+    "message": "अनुसूची"
+  },
+  "descSchedule": {
+    "message": "विशिष्ट दिनों और समय तक सीमित करें"
+  },
+  "colFrom": {
+    "message": "से"
+  },
+  "colTo": {
+    "message": "तक"
+  },
+  "hintOvernight": {
+    "message": "रात भर के समय समर्थित (जैसे $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "सेटिंग सहेजें"
+  },
+  "savedOk": {
+    "message": "सहेजा गया ✓"
+  }
+}

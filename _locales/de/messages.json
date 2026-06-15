@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Verhindert, dass Microsoft Teams Ihren Status auf Abwesend setzt."
+  },
+  "headerSubtitle": {
+    "message": "Verhindert den Abwesend-Status in Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "Aktiv"
+  },
+  "statusOff": {
+    "message": "Aus"
+  },
+  "labelKeepActive": {
+    "message": "Aktiv halten"
+  },
+  "descKeepActive": {
+    "message": "Teams am Setzen von Abwesend hindern"
+  },
+  "labelSchedule": {
+    "message": "Zeitplan"
+  },
+  "descSchedule": {
+    "message": "Auf bestimmte Tage & Zeiten beschränken"
+  },
+  "colFrom": {
+    "message": "Von"
+  },
+  "colTo": {
+    "message": "Bis"
+  },
+  "hintOvernight": {
+    "message": "Übernacht-Bereiche unterstützt (z. B. $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "Einstellungen speichern"
+  },
+  "savedOk": {
+    "message": "Gespeichert ✓"
+  }
+}

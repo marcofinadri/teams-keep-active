@@ -27,7 +27,11 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── Header ── */
+    /* RTL support */
+    [dir="rtl"] .header { flex-direction: row-reverse; }
+    [dir="rtl"] .col-headers,
+    [dir="rtl"] .day-row { direction: rtl; }
+
     .header {
       display: flex;
       align-items: center;
@@ -48,52 +52,26 @@
     }
 
     .header-text { flex: 1; min-width: 0; }
-    .header-title {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .01em;
-    }
-    .header-subtitle {
-      font-size: 10px;
-      color: var(--muted);
-      margin-top: 1px;
-    }
+    .header-title  { font-size: 13px; font-weight: 700; letter-spacing: .01em; }
+    .header-subtitle { font-size: 10px; color: var(--muted); margin-top: 1px; }
 
     .status-pill {
       display: flex; align-items: center; gap: 5px;
       padding: 3px 8px;
       border-radius: 20px;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .04em;
-      text-transform: uppercase;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: .04em; text-transform: uppercase;
       border: 1px solid transparent;
       transition: all .3s;
+      white-space: nowrap;
     }
-    .status-pill.on {
-      background: var(--success-glow);
-      border-color: #3dd68c55;
-      color: var(--success);
-    }
-    .status-pill.off {
-      background: #1e1e38;
-      border-color: var(--border);
-      color: var(--muted);
-    }
-    .status-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: currentColor;
-    }
-    .status-pill.on .status-dot {
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: .4; }
-    }
+    .status-pill.on  { background: var(--success-glow); border-color: #3dd68c55; color: var(--success); }
+    .status-pill.off { background: #1e1e38; border-color: var(--border); color: var(--muted); }
 
-    /* ── Cards ── */
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .status-pill.on .status-dot { animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
     .card {
       margin: 10px 12px 0;
       background: var(--surface);
@@ -101,7 +79,6 @@
       border-radius: 14px;
       overflow: hidden;
     }
-    .card:last-of-type { margin-bottom: 0; }
 
     .card-row {
       display: flex;
@@ -112,17 +89,10 @@
 
     .card-label { font-size: 14px; font-weight: 500; }
     .card-meta  { font-size: 10px; color: var(--muted); margin-top: 2px; }
+    .card-sep   { height: 1px; background: var(--border); margin: 0 14px; }
 
-    .card-sep {
-      height: 1px;
-      background: var(--border);
-      margin: 0 14px;
-    }
-
-    /* ── Toggles ── */
     .toggle { position: relative; flex-shrink: 0; }
     .toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
-
     .toggle-track {
       display: block;
       background: var(--surface-2);
@@ -141,7 +111,6 @@
     }
     .toggle input:checked ~ .toggle-track { background: var(--accent); }
 
-    /* sizes */
     .toggle.lg .toggle-track { width: 44px; height: 26px; }
     .toggle.lg .toggle-track::after { width: 20px; height: 20px; top: 3px; left: 3px; }
     .toggle.lg input:checked ~ .toggle-track::after { transform: translateX(18px); }
@@ -154,7 +123,6 @@
     .toggle.sm .toggle-track::after { width: 10px; height: 10px; top: 3px; left: 3px; }
     .toggle.sm input:checked ~ .toggle-track::after { transform: translateX(12px); }
 
-    /* ── Days grid ── */
     .days-body { padding: 6px 10px 12px; }
 
     .col-headers {
@@ -164,10 +132,8 @@
       padding: 0 6px 4px;
     }
     .col-headers span {
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--muted);
+      font-size: 9px; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--muted);
     }
 
     .day-row {
@@ -178,16 +144,10 @@
       padding: 5px 6px;
       border-radius: 8px;
       transition: background .15s;
-      cursor: default;
     }
     .day-row:hover { background: var(--surface-2); }
 
-    .day-name {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      transition: color .2s;
-    }
+    .day-name { font-size: 12px; font-weight: 600; color: var(--muted); transition: color .2s; }
     .day-row.day-on .day-name { color: var(--text); }
 
     input[type="time"] {
@@ -201,38 +161,22 @@
       text-align: center;
       cursor: pointer;
       transition: border-color .15s, opacity .2s;
-      -webkit-appearance: none;
     }
-    input[type="time"]:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-    input[type="time"]:disabled {
-      opacity: .2;
-      cursor: default;
-    }
+    input[type="time"]:focus { outline: none; border-color: var(--accent); }
+    input[type="time"]:disabled { opacity: .2; cursor: default; }
 
     .hint {
-      font-size: 10px;
-      color: var(--muted);
-      text-align: center;
-      margin-top: 8px;
-      opacity: .7;
+      font-size: 10px; color: var(--muted);
+      text-align: center; margin-top: 8px; opacity: .7;
     }
 
-    /* ── Footer ── */
     .footer { padding: 12px; }
 
     #save {
-      width: 100%;
-      padding: 11px;
+      width: 100%; padding: 11px;
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-      color: #fff;
-      border: none;
-      border-radius: 11px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
+      color: #fff; border: none; border-radius: 11px;
+      font-size: 14px; font-weight: 600; cursor: pointer;
       transition: opacity .15s, transform .1s;
       box-shadow: 0 4px 14px var(--accent-glow);
     }
@@ -240,35 +184,31 @@
     #save:active { transform: scale(.97); }
 
     #save-status {
-      font-size: 11px;
-      text-align: center;
-      margin-top: 8px;
-      color: var(--success);
+      font-size: 11px; text-align: center;
+      margin-top: 8px; color: var(--success);
       min-height: 14px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <div class="header">
     <div class="logo">⚡</div>
     <div class="header-text">
-      <div class="header-title">Teams Keep Active</div>
-      <div class="header-subtitle">Prevents Away status on Microsoft Teams</div>
+      <div class="header-title" data-i18n="extensionName"></div>
+      <div class="header-subtitle" data-i18n="headerSubtitle"></div>
     </div>
     <div id="status-pill" class="status-pill off">
       <span class="status-dot"></span>
-      <span id="status-label">Off</span>
+      <span id="status-label" data-i18n="statusOff"></span>
     </div>
   </div>
 
-  <!-- Enabled card -->
   <div class="card">
     <div class="card-row">
       <div>
-        <div class="card-label">Keep Active</div>
-        <div class="card-meta">Prevent Teams from setting Away</div>
+        <div class="card-label" data-i18n="labelKeepActive"></div>
+        <div class="card-meta"  data-i18n="descKeepActive"></div>
       </div>
       <label class="toggle lg">
         <input type="checkbox" id="toggle" checked />
@@ -277,12 +217,11 @@
     </div>
   </div>
 
-  <!-- Schedule card -->
   <div class="card">
     <div class="card-row">
       <div>
-        <div class="card-label">Schedule</div>
-        <div class="card-meta">Limit to specific days &amp; hours</div>
+        <div class="card-label" data-i18n="labelSchedule"></div>
+        <div class="card-meta"  data-i18n="descSchedule"></div>
       </div>
       <label class="toggle md">
         <input type="checkbox" id="useSchedule" />
@@ -295,18 +234,17 @@
       <div class="days-body">
         <div class="col-headers">
           <span></span><span></span>
-          <span>From</span>
-          <span>To</span>
+          <span data-i18n="colFrom"></span>
+          <span data-i18n="colTo"></span>
         </div>
         <div id="days-grid"></div>
-        <p class="hint">Overnight ranges supported (e.g. 22:00 → 06:00)</p>
+        <p class="hint" id="hint-overnight"></p>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
-    <button id="save">Save settings</button>
+    <button id="save" data-i18n="btnSave"></button>
     <div id="save-status"></div>
   </div>
 

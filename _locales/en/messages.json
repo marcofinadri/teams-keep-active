@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Prevents Microsoft Teams from setting your status to Away."
+  },
+  "headerSubtitle": {
+    "message": "Prevents Away status on Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "Active"
+  },
+  "statusOff": {
+    "message": "Off"
+  },
+  "labelKeepActive": {
+    "message": "Keep Active"
+  },
+  "descKeepActive": {
+    "message": "Prevent Teams from setting Away"
+  },
+  "labelSchedule": {
+    "message": "Schedule"
+  },
+  "descSchedule": {
+    "message": "Limit to specific days & hours"
+  },
+  "colFrom": {
+    "message": "From"
+  },
+  "colTo": {
+    "message": "To"
+  },
+  "hintOvernight": {
+    "message": "Overnight ranges supported (e.g. $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "Save settings"
+  },
+  "savedOk": {
+    "message": "Saved ✓"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Microsoft Teams가 상태를 '자리 비움'으로 변경하지 못하게 합니다."
+  },
+  "headerSubtitle": {
+    "message": "Microsoft Teams 자리 비움 상태 방지"
+  },
+  "statusActive": {
+    "message": "활성"
+  },
+  "statusOff": {
+    "message": "비활성"
+  },
+  "labelKeepActive": {
+    "message": "활성 유지"
+  },
+  "descKeepActive": {
+    "message": "Teams가 자리 비움로 변경하는 것을 방지"
+  },
+  "labelSchedule": {
+    "message": "스케줄"
+  },
+  "descSchedule": {
+    "message": "특정 요일 및 시간대로 제한"
+  },
+  "colFrom": {
+    "message": "시작"
+  },
+  "colTo": {
+    "message": "종료"
+  },
+  "hintOvernight": {
+    "message": "자정을 넘는 시간 범위 지원 (예: $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "설정 저장"
+  },
+  "savedOk": {
+    "message": "저장됨 ✓"
+  }
+}

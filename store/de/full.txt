@@ -1,0 +1,23 @@
+Teams Keep Active verhindert, dass Microsoft Teams Ihren Status auf Abwesend setzt, wenn Sie die Tastatur verlassen - ohne Mausbewegung oder sichtbare Aenderungen.
+
+━━━ FUNKTIONEN ━━━
+
+Tagesbasierte Planung: Legen Sie fuer jeden Wochentag unabhaengige aktive Zeiten fest.
+Übernacht-Bereiche: Bereiche die Mitternacht ueberschreiten werden unterstuetzt (z.B. 22:00 -> 06:00).
+Haupt-Schalter: Deaktivieren Sie die Erweiterung sofort ohne sie zu deinstallieren.
+Echtzeit-Einstellungen: Aenderungen wirken sofort.
+Keine visuelle Interferenz: Nichts bewegt sich auf dem Bildschirm.
+Geraeteuebergreifende Synchronisation: Einstellungen werden ueber alle Chrome-Profile synchronisiert.
+
+━━━ KOMPATIBILITAET ━━━
+
+Funktioniert mit Teams-Web und Teams PWA auf Chrome/Edge.
+Nicht kompatibel mit der Teams Desktop-App (Electron).
+
+━━━ DATENSCHUTZ ━━━
+
+Keine Datenerfassung. Einstellungen lokal gespeichert. Quellcode auf GitHub verfuegbar.
+
+━━━ BERECHTIGUNGEN ━━━
+
+storage: zum Speichern der Einstellungen.

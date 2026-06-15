@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Запобігає встановлення статусу «Відсутній» у Microsoft Teams."
+  },
+  "headerSubtitle": {
+    "message": "Запобігає статус «Відсутній» у Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "Активний"
+  },
+  "statusOff": {
+    "message": "Вимк."
+  },
+  "labelKeepActive": {
+    "message": "Залишатись активним"
+  },
+  "descKeepActive": {
+    "message": "Заборонити Teams ставити «Відсутній»"
+  },
+  "labelSchedule": {
+    "message": "Розклад"
+  },
+  "descSchedule": {
+    "message": "Обмежити певними днями та годинами"
+  },
+  "colFrom": {
+    "message": "З"
+  },
+  "colTo": {
+    "message": "До"
+  },
+  "hintOvernight": {
+    "message": "Нічні інтервали підтримуються (напр. $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "Зберегти налаштування"
+  },
+  "savedOk": {
+    "message": "Збережено ✓"
+  }
+}

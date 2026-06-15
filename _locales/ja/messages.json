@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Microsoft Teams のステータスが「退席中」になるのを防います。"
+  },
+  "headerSubtitle": {
+    "message": "Microsoft Teams の退席中ステータスを防止"
+  },
+  "statusActive": {
+    "message": "有効"
+  },
+  "statusOff": {
+    "message": "無効"
+  },
+  "labelKeepActive": {
+    "message": "アクティブを維持"
+  },
+  "descKeepActive": {
+    "message": "Teams が退席中に変更するのを防ぐ"
+  },
+  "labelSchedule": {
+    "message": "スケジュール"
+  },
+  "descSchedule": {
+    "message": "特定の曜日・時間帯に制限"
+  },
+  "colFrom": {
+    "message": "開始"
+  },
+  "colTo": {
+    "message": "終了"
+  },
+  "hintOvernight": {
+    "message": "深夜をまたぐ時間帯も対応（例：$FROM$ → $TO$）",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "設定を保存"
+  },
+  "savedOk": {
+    "message": "保存しました ✓"
+  }
+}

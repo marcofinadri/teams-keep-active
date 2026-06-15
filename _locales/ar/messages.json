@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "يمنع Microsoft Teams من تعيين حالتك إلى غائب."
+  },
+  "headerSubtitle": {
+    "message": "يمنع حالة غائب في Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "نشط"
+  },
+  "statusOff": {
+    "message": "معطّل"
+  },
+  "labelKeepActive": {
+    "message": "إبقاء النشاط"
+  },
+  "descKeepActive": {
+    "message": "منع Teams من تعيين حالة غائب"
+  },
+  "labelSchedule": {
+    "message": "جدولة"
+  },
+  "descSchedule": {
+    "message": "تقييد بأيام وأوقات محددة"
+  },
+  "colFrom": {
+    "message": "من"
+  },
+  "colTo": {
+    "message": "إلى"
+  },
+  "hintOvernight": {
+    "message": "تدعم الفترات الليلية (مثال: $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "حفظ الإعدادات"
+  },
+  "savedOk": {
+    "message": "تم الحفظ ✓"
+  }
+}

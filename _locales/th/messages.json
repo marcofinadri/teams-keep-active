@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "ป้องกัน Microsoft Teams ตั้งสถานะเป็น ออกไปแล้ว"
+  },
+  "headerSubtitle": {
+    "message": "ป้องกันสถานะ ออกไปแล้ว ใน Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "ใช้งาน"
+  },
+  "statusOff": {
+    "message": "ปิด"
+  },
+  "labelKeepActive": {
+    "message": "คงสถานะออนไลน์"
+  },
+  "descKeepActive": {
+    "message": "ป้องกัน Teams ตั้งสถานะไม่อยู่"
+  },
+  "labelSchedule": {
+    "message": "ตั้งเวลา"
+  },
+  "descSchedule": {
+    "message": "จำกัดเฉพาะวันและเวลาที่กำหนด"
+  },
+  "colFrom": {
+    "message": "ตั้งแต่"
+  },
+  "colTo": {
+    "message": "ถึง"
+  },
+  "hintOvernight": {
+    "message": "รองรับช่วงเวลาข้ามคืน (เช่น $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "บันทึกการตั้งค่า"
+  },
+  "savedOk": {
+    "message": "บันทึกแล้ว ✓"
+  }
+}

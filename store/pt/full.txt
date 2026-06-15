@@ -1,0 +1,23 @@
+Teams Keep Active impede que o Microsoft Teams defina seu status como Ausente quando voce se afasta do teclado, sem mover o mouse nem deixar rastros visiveis.
+
+━━━ RECURSOS ━━━
+
+Agendamento por dia: Configure horarios ativos independentes para cada dia da semana.
+Intervalos noturnos: Suporte a intervalos que cruzam a meia-noite (ex. 22:00 -> 06:00).
+Interruptor principal: Desative a extensao instantaneamente.
+Configuracoes em tempo real: As alteracoes entram em vigor imediatamente.
+Sem interferencia visual: Nada se move na tela.
+Sincronizacao: Configuracoes sincronizadas entre perfis Chrome.
+
+━━━ COMPATIBILIDADE ━━━
+
+Funciona com Teams web e Teams PWA no Chrome/Edge.
+Nao funciona com o aplicativo de desktop do Teams (Electron).
+
+━━━ PRIVACIDADE ━━━
+
+Sem coleta de dados. Configuracoes armazenadas localmente. Codigo aberto no GitHub.
+
+━━━ PERMISSOES ━━━
+
+storage: para salvar e sincronizar as configuracoes.

@@ -1,0 +1,54 @@
+{
+  "extensionName": {
+    "message": "Teams Keep Active"
+  },
+  "extensionDescription": {
+    "message": "Voorkomt dat Microsoft Teams uw status instelt op Afwezig."
+  },
+  "headerSubtitle": {
+    "message": "Voorkomt de Afwezig-status in Microsoft Teams"
+  },
+  "statusActive": {
+    "message": "Actief"
+  },
+  "statusOff": {
+    "message": "Uit"
+  },
+  "labelKeepActive": {
+    "message": "Actief houden"
+  },
+  "descKeepActive": {
+    "message": "Voorkom dat Teams Afwezig instelt"
+  },
+  "labelSchedule": {
+    "message": "Schema"
+  },
+  "descSchedule": {
+    "message": "Beperk tot bepaalde dagen en uren"
+  },
+  "colFrom": {
+    "message": "Van"
+  },
+  "colTo": {
+    "message": "Tot"
+  },
+  "hintOvernight": {
+    "message": "Nachtelijke bereiken ondersteund (bijv. $FROM$ → $TO$)",
+    "placeholders": {
+      "from": {
+        "content": "$1",
+        "example": "10:00 PM"
+      },
+      "to": {
+        "content": "$2",
+        "example": "6:00 AM"
+      }
+    }
+  },
+  "btnSave": {
+    "message": "Instellingen opslaan"
+  },
+  "savedOk": {
+    "message": "Opgeslagen ✓"
+  }
+}
