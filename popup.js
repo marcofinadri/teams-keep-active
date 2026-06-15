@@ -1,6 +1,5 @@
 'use strict';
 
-// Display order: Mon–Sun (JS getDay(): 0=Sun, 1=Mon … 6=Sat)
 const DAYS = [
     { idx: 1, label: 'Mon' },
     { idx: 2, label: 'Tue' },
@@ -22,26 +21,55 @@ const useSchedule = document.getElementById('useSchedule');
 const daysWrap    = document.getElementById('days-wrap');
 const daysGrid    = document.getElementById('days-grid');
 const saveBtn     = document.getElementById('save');
-const status      = document.getElementById('status');
+const saveStatus  = document.getElementById('save-status');
+const statusPill  = document.getElementById('status-pill');
+const statusLabel = document.getElementById('status-label');
+
+function toMinutes(hhmm) {
+    const [h, m] = hhmm.split(':').map(Number);
+    return h * 60 + m;
+}
+
+function inRange(cur, start, end) {
+    return start <= end ? cur >= start && cur <= end
+                        : cur >= start || cur <= end;
+}
+
+function computeActive(s) {
+    if (!s.enabled) return false;
+    if (!s.useSchedule) return true;
+    const now = new Date();
+    const day = (s.days ?? DEFAULT_DAYS)[now.getDay()];
+    if (!day?.active) return false;
+    const cur = now.getHours() * 60 + now.getMinutes();
+    return inRange(cur, toMinutes(day.start), toMinutes(day.end));
+}
+
+function updateStatusPill(s) {
+    const on = computeActive(s);
+    statusPill.className = `status-pill ${on ? 'on' : 'off'}`;
+    statusLabel.textContent = on ? 'Active' : 'Off';
+}
 
 function buildGrid(days) {
     daysGrid.innerHTML = '';
     DAYS.forEach(({ idx, label }) => {
         const d   = days[idx] ?? DEFAULT_DAYS[idx];
         const row = document.createElement('div');
-        row.className   = 'day-row';
+        row.className   = `day-row ${d.active ? 'day-on' : ''}`;
         row.dataset.day = idx;
         row.innerHTML = `
-            <span class="day-label">${label}</span>
-            <label class="switch mini">
+            <span class="day-name">${label}</span>
+            <label class="toggle sm">
                 <input type="checkbox" class="day-toggle" ${d.active ? 'checked' : ''}>
-                <span class="slider"></span>
+                <span class="toggle-track"></span>
             </label>
             <input type="time" class="day-start" value="${d.start}" ${d.active ? '' : 'disabled'}>
             <input type="time" class="day-end"   value="${d.end}"   ${d.active ? '' : 'disabled'}>
         `;
         row.querySelector('.day-toggle').addEventListener('change', e => {
             const on = e.target.checked;
+            row.classList.toggle('day-on', on);
             row.querySelector('.day-start').disabled = !on;
             row.querySelector('.day-end').disabled   = !on;
         });
@@ -52,7 +80,7 @@ function buildGrid(days) {
 function readDays() {
     const days = DEFAULT_DAYS.map(d => ({ ...d }));
     daysGrid.querySelectorAll('.day-row').forEach(row => {
-        const idx    = Number(row.dataset.day);
+        const idx = Number(row.dataset.day);
         days[idx] = {
             active: row.querySelector('.day-toggle').checked,
             start:  row.querySelector('.day-start').value,
@@ -63,23 +91,26 @@ function readDays() {
 }
 
 useSchedule.addEventListener('change', () => {
-    daysWrap.classList.toggle('visible', useSchedule.checked);
+    daysWrap.style.display = useSchedule.checked ? 'block' : 'none';
 });
 
 chrome.storage.sync.get({ enabled: true, useSchedule: false, days: DEFAULT_DAYS }, s => {
     toggle.checked      = s.enabled;
     useSchedule.checked = s.useSchedule;
     buildGrid(s.days);
-    if (s.useSchedule) daysWrap.classList.add('visible');
+    if (s.useSchedule) daysWrap.style.display = 'block';
+    updateStatusPill(s);
 });
 
 saveBtn.addEventListener('click', () => {
-    chrome.storage.sync.set({
+    const s = {
         enabled:     toggle.checked,
         useSchedule: useSchedule.checked,
         days:        readDays(),
-    }, () => {
-        status.textContent = 'Saved ✓';
-        setTimeout(() => { status.textContent = ''; }, 1800);
+    };
+    chrome.storage.sync.set(s, () => {
+        updateStatusPill(s);
+        saveStatus.textContent = 'Saved ✓';
+        setTimeout(() => { saveStatus.textContent = ''; }, 1800);
     });
 });
