@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "저장됨 ✓"
+  },
+  "labelPresets": {
+    "message": "빠른 설정"
+  },
+  "presetWorkWeek": {
+    "message": "근무 주간"
+  },
+  "presetAlwaysOn": {
+    "message": "항상 활성"
+  },
+  "presetOff": {
+    "message": "끄기"
+  },
+  "labelNotify": {
+    "message": "일시 중지 시 알림"
+  },
+  "descNotify": {
+    "message": "활성 시간 종료 시 데스크탑 알림"
+  },
+  "labelTools": {
+    "message": "도구"
+  },
+  "btnExport": {
+    "message": "내보내기"
+  },
+  "btnImport": {
+    "message": "가져오기"
+  },
+  "importError": {
+    "message": "잘못된 파일"
+  },
+  "notifPaused": {
+    "message": "일시 중지됨 — 활성 시간 외"
+  },
+  "labelActivity": {
+    "message": "오늘 활성"
   }
 }

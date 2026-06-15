@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "Opgeslagen ✓"
+  },
+  "labelPresets": {
+    "message": "Snelle presets"
+  },
+  "presetWorkWeek": {
+    "message": "Werkweek"
+  },
+  "presetAlwaysOn": {
+    "message": "Altijd actief"
+  },
+  "presetOff": {
+    "message": "Uitschakelen"
+  },
+  "labelNotify": {
+    "message": "Melden bij pauze"
+  },
+  "descNotify": {
+    "message": "Bureaubladmelding aan het einde van actieve uren"
+  },
+  "labelTools": {
+    "message": "Hulpmiddelen"
+  },
+  "btnExport": {
+    "message": "Exporteren"
+  },
+  "btnImport": {
+    "message": "Importeren"
+  },
+  "importError": {
+    "message": "Ongeldig bestand"
+  },
+  "notifPaused": {
+    "message": "Gepauzeerd — buiten actieve uren"
+  },
+  "labelActivity": {
+    "message": "Vandaag actief"
   }
 }

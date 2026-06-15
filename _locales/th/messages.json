@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "บันทึกแล้ว ✓"
+  },
+  "labelPresets": {
+    "message": "ค่าที่ตั้งล่วงหน้า"
+  },
+  "presetWorkWeek": {
+    "message": "สัปดาห์ทำงาน"
+  },
+  "presetAlwaysOn": {
+    "message": "เปิดตลอด"
+  },
+  "presetOff": {
+    "message": "ปิด"
+  },
+  "labelNotify": {
+    "message": "แจ้งเตือนเมื่อหยุด"
+  },
+  "descNotify": {
+    "message": "การแจ้งเตือนบนเดสก์ท็อปเมื่อสิ้นสุดชั่วโมงใช้งาน"
+  },
+  "labelTools": {
+    "message": "เครื่องมือ"
+  },
+  "btnExport": {
+    "message": "ส่งออก"
+  },
+  "btnImport": {
+    "message": "นำเข้า"
+  },
+  "importError": {
+    "message": "ไฟล์ไม่ถูกต้อง"
+  },
+  "notifPaused": {
+    "message": "หยุดชั่วคราว — นอกชั่วโมงใช้งาน"
+  },
+  "labelActivity": {
+    "message": "ใช้งานวันนี้"
   }
 }

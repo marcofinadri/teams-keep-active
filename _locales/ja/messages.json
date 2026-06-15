@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "保存しました ✓"
+  },
+  "labelPresets": {
+    "message": "クイック設定"
+  },
+  "presetWorkWeek": {
+    "message": "平日"
+  },
+  "presetAlwaysOn": {
+    "message": "常にアクティブ"
+  },
+  "presetOff": {
+    "message": "オフにする"
+  },
+  "labelNotify": {
+    "message": "一時停止時に通知"
+  },
+  "descNotify": {
+    "message": "アクティブ時間終了時にデスクトップ通知"
+  },
+  "labelTools": {
+    "message": "ツール"
+  },
+  "btnExport": {
+    "message": "エクスポート"
+  },
+  "btnImport": {
+    "message": "インポート"
+  },
+  "importError": {
+    "message": "無効なファイル"
+  },
+  "notifPaused": {
+    "message": "一時停止中 — アクティブ時間外"
+  },
+  "labelActivity": {
+    "message": "本日のアクティブ時間"
   }
 }

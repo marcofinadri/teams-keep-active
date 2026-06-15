@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "Tersimpan ✓"
+  },
+  "labelPresets": {
+    "message": "Preset cepat"
+  },
+  "presetWorkWeek": {
+    "message": "Hari kerja"
+  },
+  "presetAlwaysOn": {
+    "message": "Selalu aktif"
+  },
+  "presetOff": {
+    "message": "Matikan"
+  },
+  "labelNotify": {
+    "message": "Beri tahu saat jeda"
+  },
+  "descNotify": {
+    "message": "Peringatan desktop saat jam aktif berakhir"
+  },
+  "labelTools": {
+    "message": "Alat"
+  },
+  "btnExport": {
+    "message": "Ekspor"
+  },
+  "btnImport": {
+    "message": "Impor"
+  },
+  "importError": {
+    "message": "File tidak valid"
+  },
+  "notifPaused": {
+    "message": "Dijeda — di luar jam aktif"
+  },
+  "labelActivity": {
+    "message": "Aktif hari ini"
   }
 }

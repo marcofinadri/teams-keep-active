@@ -3,7 +3,6 @@
 // ── i18n ─────────────────────────────────────────────────────────────────────
 const lang = chrome.i18n.getUILanguage();
 
-// RTL languages
 if (['ar', 'he', 'fa', 'ur'].includes(lang.split('-')[0])) {
     document.documentElement.dir = 'rtl';
 }
@@ -13,14 +12,11 @@ document.querySelectorAll('[data-i18n]').forEach(el => {
     if (msg) el.textContent = msg;
 });
 
-// Locale-aware day names (Mon–Sun display order)
-// Jan 5 2025 = Sunday, so jsDay 0 → +0, jsDay 1 → +1, etc.
 function localDayName(jsDay) {
     return new Intl.DateTimeFormat(lang, { weekday: 'short' })
         .format(new Date(2025, 0, 5 + jsDay));
 }
 
-// Locale-aware time format for overnight hint
 function formatHint() {
     const use12h = new Intl.DateTimeFormat(lang, { hour: 'numeric' })
         .resolvedOptions().hour12;
@@ -34,6 +30,14 @@ function formatHint() {
 
 document.getElementById('hint-overnight').textContent = formatHint();
 
+// Show actual keyboard shortcut assigned by Chrome
+chrome.commands.getAll(cmds => {
+    const cmd = cmds.find(c => c.name === 'toggle-active');
+    if (cmd?.shortcut) {
+        document.getElementById('shortcut-hint').textContent = cmd.shortcut;
+    }
+});
+
 // ── State ─────────────────────────────────────────────────────────────────────
 const DAYS = [
     { idx: 1 }, { idx: 2 }, { idx: 3 }, { idx: 4 },
@@ -46,14 +50,36 @@ const DEFAULT_DAYS = Array.from({ length: 7 }, (_, i) => ({
     end:    '18:00',
 }));
 
+const PRESETS = {
+    workweek: {
+        enabled: true, useSchedule: true,
+        days: Array.from({ length: 7 }, (_, i) => ({
+            active: i >= 1 && i <= 5, start: '09:00', end: '18:00',
+        })),
+    },
+    alwayson: {
+        enabled: true, useSchedule: false,
+        days: Array.from({ length: 7 }, () => ({ active: true, start: '00:00', end: '23:59' })),
+    },
+    off: {
+        enabled: false, useSchedule: false,
+        days: DEFAULT_DAYS.map(d => ({ ...d })),
+    },
+};
+
 const toggle      = document.getElementById('toggle');
 const useSchedule = document.getElementById('useSchedule');
+const notifyOnEnd = document.getElementById('notifyOnEnd');
 const daysWrap    = document.getElementById('days-wrap');
 const daysGrid    = document.getElementById('days-grid');
 const saveBtn     = document.getElementById('save');
 const saveStatus  = document.getElementById('save-status');
 const statusPill  = document.getElementById('status-pill');
 const statusLabel = document.getElementById('status-label');
+const statsToday  = document.getElementById('stats-today');
+const btnExport   = document.getElementById('btnExport');
+const btnImport   = document.getElementById('btnImport');
+const importFile  = document.getElementById('importFile');
 
 // ── Schedule helpers ──────────────────────────────────────────────────────────
 function toMin(hhmm) {
@@ -76,8 +102,21 @@ function computeActive(s) {
 
 function updatePill(s) {
     const on = computeActive(s);
-    statusPill.className  = `status-pill ${on ? 'on' : 'off'}`;
+    statusPill.className    = `status-pill ${on ? 'on' : 'off'}`;
     statusLabel.textContent = chrome.i18n.getMessage(on ? 'statusActive' : 'statusOff');
+}
+
+// ── Activity stats ────────────────────────────────────────────────────────────
+function loadStats() {
+    const d = new Date();
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    chrome.storage.local.get({ stats: {} }, ({ stats }) => {
+        const mins = stats[key] || 0;
+        if (mins === 0) { statsToday.textContent = '—'; return; }
+        const h = Math.floor(mins / 60);
+        const m = mins % 60;
+        statsToday.textContent = h > 0 ? `${h}h ${m}m` : `${m}m`;
+    });
 }
 
 // ── Days grid ─────────────────────────────────────────────────────────────────
@@ -120,23 +159,87 @@ function readDays() {
     return days;
 }
 
-// ── Init ──────────────────────────────────────────────────────────────────────
+// ── Apply settings to UI ──────────────────────────────────────────────────────
+function applySettings(s) {
+    toggle.checked      = s.enabled;
+    useSchedule.checked = s.useSchedule;
+    notifyOnEnd.checked = s.notifyOnEnd ?? false;
+    buildGrid(s.days ?? DEFAULT_DAYS);
+    daysWrap.style.display = s.useSchedule ? 'block' : 'none';
+    updatePill(s);
+}
+
+function loadSettings() {
+    chrome.storage.sync.get(
+        { enabled: true, useSchedule: false, days: DEFAULT_DAYS, notifyOnEnd: false },
+        s => applySettings(s)
+    );
+}
+
+// ── Event handlers ────────────────────────────────────────────────────────────
 useSchedule.addEventListener('change', () => {
     daysWrap.style.display = useSchedule.checked ? 'block' : 'none';
 });
 
-chrome.storage.sync.get({ enabled: true, useSchedule: false, days: DEFAULT_DAYS }, s => {
-    toggle.checked      = s.enabled;
-    useSchedule.checked = s.useSchedule;
-    buildGrid(s.days);
-    if (s.useSchedule) daysWrap.style.display = 'block';
-    updatePill(s);
+// Preset buttons — apply + auto-save immediately
+document.querySelectorAll('.preset-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const preset = PRESETS[btn.dataset.preset];
+        if (!preset) return;
+        const s = { ...preset, notifyOnEnd: notifyOnEnd.checked };
+        applySettings(s);
+        chrome.storage.sync.set(s, () => {
+            updatePill(s);
+            saveStatus.textContent = chrome.i18n.getMessage('savedOk');
+            setTimeout(() => { saveStatus.textContent = ''; }, 1800);
+        });
+    });
 });
 
+// Export settings as JSON file
+btnExport.addEventListener('click', () => {
+    chrome.storage.sync.get(null, data => {
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url  = URL.createObjectURL(blob);
+        const a    = Object.assign(document.createElement('a'), {
+            href: url, download: 'teams-keep-active-settings.json',
+        });
+        a.click();
+        URL.revokeObjectURL(url);
+    });
+});
+
+// Import settings from JSON file
+btnImport.addEventListener('click', () => importFile.click());
+importFile.addEventListener('change', e => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+        try {
+            const s = JSON.parse(ev.target.result);
+            if (typeof s.enabled !== 'boolean') throw new Error('invalid');
+            chrome.storage.sync.set(s, () => {
+                loadSettings();
+                loadStats();
+                saveStatus.textContent = chrome.i18n.getMessage('savedOk');
+                setTimeout(() => { saveStatus.textContent = ''; }, 1800);
+            });
+        } catch (_) {
+            saveStatus.textContent = chrome.i18n.getMessage('importError');
+            setTimeout(() => { saveStatus.textContent = ''; }, 2000);
+        }
+        importFile.value = '';
+    };
+    reader.readAsText(file);
+});
+
+// Save button
 saveBtn.addEventListener('click', () => {
     const s = {
         enabled:     toggle.checked,
         useSchedule: useSchedule.checked,
+        notifyOnEnd: notifyOnEnd.checked,
         days:        readDays(),
     };
     chrome.storage.sync.set(s, () => {
@@ -145,3 +248,7 @@ saveBtn.addEventListener('click', () => {
         setTimeout(() => { saveStatus.textContent = ''; }, 1800);
     });
 });
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+loadSettings();
+loadStats();

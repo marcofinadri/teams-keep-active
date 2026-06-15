@@ -1,1 +1,1 @@
-Mantiene tu estado de Microsoft Teams como Activo - programa por dia y hora.
+Mantiene Teams Activo — horario diario, ajustes rápidos, atajo de teclado, badge y estadísticas.

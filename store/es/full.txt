@@ -1,23 +1,34 @@
-Teams Keep Active evita que Microsoft Teams establezca tu estado como Ausente cuando te alejas del teclado, sin mover el raton ni dejar rastros visibles.
+Teams Keep Active evita que Microsoft Teams establezca tu estado como Ausente cuando te alejas del teclado — sin mover el ratón, pulsar teclas ni dejar rastros visibles.
 
-━━━ CARACTERISTICAS ━━━
+━━━ CÓMO FUNCIONA ━━━
 
-Programacion por dia: Configura horarios activos independientes para cada dia de la semana.
-Rangos nocturnos: Compatible con rangos que cruzan medianoche (ej. 22:00 -> 06:00).
-Interruptor principal: Desactiva la extension al instante sin desinstalarla.
-Configuracion en tiempo real: Los cambios surten efecto de inmediato.
-Sin interferencia visual: Nada se mueve en pantalla.
-Sincronizacion: La configuracion se sincroniza en todos los perfiles de Chrome.
+Microsoft Teams detecta la inactividad a través de eventos del navegador y la Page Visibility API. Cuando cambias de pestaña, minimizas la ventana o dejas de interactuar, Teams cambia silenciosamente tu estado a Ausente.
+
+Teams Keep Active parchea estos mecanismos de detección a nivel de navegador:
+• Anula la Page Visibility API para que Teams siempre vea la pestaña como visible
+• Anula document.hasFocus() para que Teams vea la ventana siempre enfocada
+• Envía un evento puntero sintético silencioso cada 45 segundos — solo cuando estás realmente inactivo
+
+Todo se ejecuta dentro de la pestaña de Teams. Sin procesos en segundo plano, sin servidores externos, sin datos recopilados.
+
+━━━ CARACTERÍSTICAS ━━━
+
+Programación por día: Horas activas independientes para cada día. Activa lun–vie 9:00–18:00, deja los fines de semana libres.
+Rangos nocturnos: Rangos que cruzan medianoche son compatibles (ej. 22:00–06:00).
+Interruptor principal: Desactiva la extensión al instante sin desinstalarla.
+Ajustes rápidos: Un clic para "Semana laboral", "Siempre activo" o "Apagar".
+Atajo de teclado: Activar/desactivar con Ctrl+Shift+K (Cmd+Shift+K en Mac).
+Indicador de badge: El icono muestra "OFF" cuando está inactivo.
+Notificaciones de pausa: Alerta de escritorio opcional al terminar las horas activas.
+Importar / Exportar: Copia de seguridad en JSON y restauración en cualquier dispositivo.
+Estadísticas de actividad: Minutos activos hoy.
+Configuración en tiempo real. Sin interferencia visual. 20 idiomas.
 
 ━━━ COMPATIBILIDAD ━━━
 
-Funciona con Teams web y Teams PWA en Chrome/Edge.
-No funciona con la aplicacion de escritorio de Teams (Electron).
+Funciona con: Teams Web (teams.microsoft.com), Teams Personal (teams.live.com), Teams PWA — Chrome, Edge, Brave, Arc, Opera.
+No funciona con: Teams Desktop App (Electron). La pestaña de Teams debe permanecer abierta.
 
 ━━━ PRIVACIDAD ━━━
 
-Sin recopilacion de datos. Configuracion almacenada localmente. Codigo fuente en GitHub.
-
-━━━ PERMISOS ━━━
-
-storage: para guardar y sincronizar la configuracion.
+Sin recopilación de datos. Sin solicitudes de red. Configuración almacenada localmente. Código fuente abierto en GitHub.

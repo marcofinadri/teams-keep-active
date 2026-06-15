@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "Gespeichert ✓"
+  },
+  "labelPresets": {
+    "message": "Schnellvorlagen"
+  },
+  "presetWorkWeek": {
+    "message": "Arbeitswoche"
+  },
+  "presetAlwaysOn": {
+    "message": "Immer aktiv"
+  },
+  "presetOff": {
+    "message": "Ausschalten"
+  },
+  "labelNotify": {
+    "message": "Bei Pause benachrichtigen"
+  },
+  "descNotify": {
+    "message": "Desktop-Hinweis, wenn die Aktivzeiten enden"
+  },
+  "labelTools": {
+    "message": "Werkzeuge"
+  },
+  "btnExport": {
+    "message": "Exportieren"
+  },
+  "btnImport": {
+    "message": "Importieren"
+  },
+  "importError": {
+    "message": "Ungültige Datei"
+  },
+  "notifPaused": {
+    "message": "Pausiert — außerhalb der Aktivzeiten"
+  },
+  "labelActivity": {
+    "message": "Heute aktiv"
   }
 }

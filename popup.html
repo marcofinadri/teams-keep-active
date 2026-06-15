@@ -25,12 +25,14 @@
       color: var(--text);
       width: 320px;
       -webkit-font-smoothing: antialiased;
+      padding-bottom: 4px;
     }
 
     /* RTL support */
     [dir="rtl"] .header { flex-direction: row-reverse; }
     [dir="rtl"] .col-headers,
     [dir="rtl"] .day-row { direction: rtl; }
+    [dir="rtl"] .presets-row { flex-direction: row-reverse; }
 
     .header {
       display: flex;
@@ -52,7 +54,7 @@
     }
 
     .header-text { flex: 1; min-width: 0; }
-    .header-title  { font-size: 13px; font-weight: 700; letter-spacing: .01em; }
+    .header-title    { font-size: 13px; font-weight: 700; letter-spacing: .01em; }
     .header-subtitle { font-size: 10px; color: var(--muted); margin-top: 1px; }
 
     .status-pill {
@@ -91,6 +93,8 @@
     .card-meta  { font-size: 10px; color: var(--muted); margin-top: 2px; }
     .card-sep   { height: 1px; background: var(--border); margin: 0 14px; }
 
+    .stat-value { font-size: 14px; font-weight: 700; color: var(--success); }
+
     .toggle { position: relative; flex-shrink: 0; }
     .toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
     .toggle-track {
@@ -123,6 +127,32 @@
     .toggle.sm .toggle-track::after { width: 10px; height: 10px; top: 3px; left: 3px; }
     .toggle.sm input:checked ~ .toggle-track::after { transform: translateX(12px); }
 
+    /* Presets */
+    .presets-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 10px 14px;
+    }
+    .preset-label {
+      font-size: 10px; text-transform: uppercase;
+      letter-spacing: .06em; color: var(--muted);
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .preset-btn {
+      padding: 4px 10px;
+      background: var(--surface-2);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 11px; font-weight: 600;
+      cursor: pointer;
+      transition: border-color .15s, color .15s;
+    }
+    .preset-btn:hover { border-color: var(--accent); color: var(--text); }
+
+    /* Days */
     .days-body { padding: 6px 10px 12px; }
 
     .col-headers {
@@ -170,6 +200,29 @@
       text-align: center; margin-top: 8px; opacity: .7;
     }
 
+    /* Tool buttons */
+    .tool-btn {
+      flex: 1;
+      padding: 8px;
+      background: var(--surface-2);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      font-size: 12px; font-weight: 600;
+      cursor: pointer;
+      transition: border-color .15s, color .15s;
+    }
+    .tool-btn:hover { border-color: var(--accent); color: var(--text); }
+    .tools-row { gap: 8px; }
+
+    /* Shortcut hint */
+    .shortcut-hint {
+      font-size: 10px; color: var(--muted);
+      text-align: center; margin-top: 8px; opacity: .55;
+      font-family: ui-monospace, 'SF Mono', monospace;
+      min-height: 14px;
+    }
+
     .footer { padding: 12px; }
 
     #save {
@@ -204,6 +257,7 @@
     </div>
   </div>
 
+  <!-- Keep Active card -->
   <div class="card">
     <div class="card-row">
       <div>
@@ -215,8 +269,14 @@
         <span class="toggle-track"></span>
       </label>
     </div>
+    <div class="card-sep"></div>
+    <div class="card-row">
+      <div class="card-label" data-i18n="labelActivity"></div>
+      <div id="stats-today" class="stat-value">—</div>
+    </div>
   </div>
 
+  <!-- Schedule card -->
   <div class="card">
     <div class="card-row">
       <div>
@@ -227,6 +287,13 @@
         <input type="checkbox" id="useSchedule" />
         <span class="toggle-track"></span>
       </label>
+    </div>
+    <div class="card-sep"></div>
+    <div class="presets-row">
+      <span class="preset-label" data-i18n="labelPresets"></span>
+      <button class="preset-btn" data-preset="workweek" data-i18n="presetWorkWeek"></button>
+      <button class="preset-btn" data-preset="alwayson" data-i18n="presetAlwaysOn"></button>
+      <button class="preset-btn" data-preset="off"      data-i18n="presetOff"></button>
     </div>
 
     <div id="days-wrap" style="display:none">
@@ -242,6 +309,31 @@
       </div>
     </div>
   </div>
+
+  <!-- Notifications card -->
+  <div class="card">
+    <div class="card-row">
+      <div>
+        <div class="card-label" data-i18n="labelNotify"></div>
+        <div class="card-meta"  data-i18n="descNotify"></div>
+      </div>
+      <label class="toggle md">
+        <input type="checkbox" id="notifyOnEnd" />
+        <span class="toggle-track"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Tools card -->
+  <div class="card">
+    <div class="card-row tools-row">
+      <button class="tool-btn" id="btnExport" data-i18n="btnExport"></button>
+      <button class="tool-btn" id="btnImport" data-i18n="btnImport"></button>
+      <input type="file" id="importFile" accept=".json" style="display:none">
+    </div>
+  </div>
+
+  <div id="shortcut-hint" class="shortcut-hint"></div>
 
   <div class="footer">
     <button id="save" data-i18n="btnSave"></button>

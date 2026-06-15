@@ -1,23 +1,44 @@
-Teams Keep Active verhindert, dass Microsoft Teams Ihren Status auf Abwesend setzt, wenn Sie die Tastatur verlassen - ohne Mausbewegung oder sichtbare Aenderungen.
+Teams Keep Active verhindert, dass Microsoft Teams deinen Status auf Abwesend setzt, wenn du dich von der Tastatur entfernst — ohne Mausbewegungen, Tastatureingaben oder sichtbare Spuren.
+
+━━━ WIE ES FUNKTIONIERT ━━━
+
+Microsoft Teams erkennt Inaktivität über Browser-Ereignisse und die Page Visibility API. Wenn du Tabs wechselst, das Fenster minimierst oder aufhörst zu interagieren, setzt Teams deinen Status still auf Abwesend.
+
+Teams Keep Active patcht diese Erkennungsmechanismen auf Browser-Ebene:
+• Überschreibt die Page Visibility API, sodass Teams den Tab immer als sichtbar sieht
+• Überschreibt document.hasFocus(), sodass Teams das Fenster immer als fokussiert sieht
+• Sendet alle 45 Sekunden ein stilles synthetisches Pointer-Ereignis — nur bei echtem Leerlauf und innerhalb der geplanten Zeiten
+
+Alles läuft im Teams-Tab selbst. Keine Hintergrundprozesse, keine externen Server, keine Datenerfassung.
 
 ━━━ FUNKTIONEN ━━━
 
-Tagesbasierte Planung: Legen Sie fuer jeden Wochentag unabhaengige aktive Zeiten fest.
-Übernacht-Bereiche: Bereiche die Mitternacht ueberschreiten werden unterstuetzt (z.B. 22:00 -> 06:00).
-Haupt-Schalter: Deaktivieren Sie die Erweiterung sofort ohne sie zu deinstallieren.
-Echtzeit-Einstellungen: Aenderungen wirken sofort.
-Keine visuelle Interferenz: Nichts bewegt sich auf dem Bildschirm.
-Geraeteuebergreifende Synchronisation: Einstellungen werden ueber alle Chrome-Profile synchronisiert.
+Tagesplanung: Unabhängige Aktivzeiten für jeden Wochentag. Aktiviere Mo–Fr 9–18 Uhr, lasse Wochenenden frei oder konfiguriere beliebige Kombinationen.
+Übernacht-Bereiche: Zeitspannen über Mitternacht werden vollständig unterstützt (z.B. 22:00–06:00).
+Master-Schalter: Deaktiviere die Erweiterung sofort ohne Deinstallation.
+Schnellvorlagen: Ein Klick für "Arbeitswoche", "Immer aktiv" oder "Ausschalten".
+Tastaturkürzel: Umschalten mit Ctrl+Shift+K (Cmd+Shift+K auf Mac) — kein Öffnen des Popups nötig.
+Badge-Anzeige: Das Symbol zeigt "OFF" wenn inaktiv.
+Zeitplan-Benachrichtigungen: Optionale Desktop-Benachrichtigung, wenn die Aktivzeiten enden.
+Importieren / Exportieren: Sicherung als JSON-Datei, Wiederherstellung auf jedem Gerät.
+Aktivitätsstatistiken: Sieh, wie viele Minuten die Erweiterung heute aktiv war.
+Echtzeit-Einstellungen: Änderungen wirken sofort — kein Tab-Neuladen nötig.
+Keine visuelle Störung: Nichts bewegt sich auf dem Bildschirm.
+Geräteübergreifende Synchronisierung über dein Google-Konto.
+20 Sprachen unterstützt.
 
-━━━ KOMPATIBILITAET ━━━
+━━━ KOMPATIBILITÄT ━━━
 
-Funktioniert mit Teams-Web und Teams PWA auf Chrome/Edge.
-Nicht kompatibel mit der Teams Desktop-App (Electron).
+Funktioniert mit: Teams Web (teams.microsoft.com), Teams Personal (teams.live.com), Teams PWA — in Chrome, Edge, Brave, Arc und Opera.
+Funktioniert nicht mit: Microsoft Teams Desktop App (Electron-basiert).
+Hinweis: Der Teams-Tab muss geöffnet bleiben.
 
 ━━━ DATENSCHUTZ ━━━
 
-Keine Datenerfassung. Einstellungen lokal gespeichert. Quellcode auf GitHub verfuegbar.
+Keine Datenerfassung. Keine Netzwerkanfragen. Einstellungen lokal über chrome.storage.sync gespeichert. Quellcode auf GitHub.
 
 ━━━ BERECHTIGUNGEN ━━━
 
-storage: zum Speichern der Einstellungen.
+storage: Zeitplan speichern und synchronisieren.
+alarms: Übergänge minütlich prüfen und Badge aktualisieren.
+notifications: Optionale Desktop-Benachrichtigung am Zeitplanende.

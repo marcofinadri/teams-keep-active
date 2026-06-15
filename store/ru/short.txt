@@ -1,1 +1,1 @@
-Uderznivaet status Microsoft Teams kak «Aktiven» — nastroite po dnjam i casam.
+Держит Teams активным — расписание, быстрые настройки, горячая клавиша, бейдж и статистика.

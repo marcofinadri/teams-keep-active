@@ -1,29 +1,44 @@
-Teams Keep Active impedisce a Microsoft Teams di impostare il tuo stato su Assente quando ti allontani dalla tastiera, senza muovere il mouse, premere tasti o lasciare tracce visibili.
+Teams Keep Active impedisce a Microsoft Teams di impostare il tuo stato su Assente quando ti allontani dalla tastiera — senza spostare il mouse, premere tasti o lasciare tracce visibili.
 
 ━━━ COME FUNZIONA ━━━
 
-Microsoft Teams rileva l'inattivita tramite gli eventi del browser e la Page Visibility API. Teams Keep Active sovrascrive questi meccanismi a livello browser impedendo che il tuo stato cambi.
+Microsoft Teams rileva l'inattività tramite eventi del browser e la Page Visibility API. Quando cambi scheda, minimizzi la finestra o smetti di interagire, Teams imposta silenziosamente il tuo stato su Assente dopo qualche minuto.
 
-━━━ FUNZIONALITA ━━━
+Teams Keep Active corregge questi meccanismi di rilevamento a livello di browser:
+• Sovrascrive la Page Visibility API in modo che Teams veda sempre la scheda come visibile
+• Sovrascrive document.hasFocus() in modo che Teams veda sempre la finestra come attiva
+• Invia un evento puntatore sintetico silenzioso ogni 45 secondi — solo quando sei genuinamente inattivo e nell'orario programmato
 
-Pianificazione per giorno: Imposta orari attivi indipendenti per ogni giorno della settimana.
-Intervalli notturni: Intervalli a cavallo della mezzanotte completamente supportati (es. 22:00 -> 06:00).
-Interruttore principale: Disabilita l'estensione istantaneamente senza disinstallarla.
-Impostazioni in tempo reale: Le modifiche hanno effetto immediato.
-Nessuna interferenza visiva: Niente si muove sullo schermo.
-Sincronizzato tra dispositivi: Le impostazioni si sincronizzano tra tutti i profili Chrome con lo stesso account Google.
-20 lingue supportate.
+Tutto viene eseguito all'interno della scheda Teams stessa. Nessun processo in background, nessun server esterno, nessun dato raccolto.
 
-━━━ COMPATIBILITA ━━━
+━━━ FUNZIONALITÀ ━━━
 
-Funziona con: Teams web (teams.microsoft.com) su Chrome, Edge, Brave, Arc, Opera e Teams PWA.
-Non funziona con: Microsoft Teams Desktop App (Electron).
-Nota: La scheda deve restare aperta.
+Pianificazione per giorno: Imposta ore attive indipendenti per ogni giorno della settimana. Abilita lunedì–venerdì 9:00–18:00, lascia il weekend libero, o configura qualsiasi combinazione.
+Fasce orarie notturne: Le fasce che attraversano la mezzanotte sono pienamente supportate (es. 22:00–06:00).
+Interruttore master: Disabilita l'estensione istantaneamente senza disinstallarla.
+Preset rapidi: Un clic per applicare "Settimana lavorativa", "Sempre attivo" o "Spegni".
+Scorciatoia da tastiera: Attiva/disattiva con Ctrl+Shift+K (Cmd+Shift+K su Mac) senza aprire il popup.
+Badge indicatore: L'icona mostra "OFF" quando inattivo, così sai sempre lo stato attuale.
+Notifiche di pausa: Avviso desktop opzionale quando terminano le ore attive.
+Importa / Esporta: Backup della pianificazione in formato JSON e ripristino su qualsiasi dispositivo.
+Statistiche attività: Vedi quanti minuti è stato attivo oggi.
+Impostazioni in tempo reale: Le modifiche hanno effetto immediato — nessun ricaricamento della scheda.
+Zero interferenze visive: Nulla si muove sullo schermo.
+Sincronizzato tra dispositivi: Le impostazioni si sincronizzano su tutti i profili Chrome con lo stesso account Google.
+20 lingue supportate: Italiano, Inglese, Tedesco, Francese, Spagnolo, Portoghese, Russo, Giapponese, Coreano, Cinese Semplificato, Arabo, Bengalese, Hindi, Indonesiano, Olandese, Polacco, Tailandese, Turco, Ucraino, Vietnamita.
+
+━━━ COMPATIBILITÀ ━━━
+
+Funziona con: Microsoft Teams web (teams.microsoft.com), Teams Personal (teams.live.com), e Teams PWA — in Chrome, Edge, Brave, Arc e Opera.
+Non funziona con: Microsoft Teams Desktop App (basata su Electron).
+Nota: La scheda Teams deve rimanere aperta.
 
 ━━━ PRIVACY ━━━
 
-Nessun dato raccolto. Nessuna richiesta di rete. Impostazioni salvate localmente. Codice sorgente aperto su GitHub.
+Nessun dato raccolto. Nessuna richiesta di rete. Impostazioni archiviate localmente tramite chrome.storage.sync. Codice sorgente aperto su GitHub.
 
 ━━━ PERMESSI ━━━
 
-storage: per salvare e sincronizzare le impostazioni. Nessun altro permesso richiesto.
+storage: per salvare e sincronizzare la pianificazione.
+alarms: per verificare le transizioni di orario ogni minuto e aggiornare il badge.
+notifications: per inviare un avviso desktop opzionale al termine delle ore attive.

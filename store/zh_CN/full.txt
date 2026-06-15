@@ -1,23 +1,34 @@
-Teams Keep Active 防止 Microsoft Teams 将状态设置为离开，无需移动鼠标或按键。
+Teams Keep Active 防止 Microsoft Teams 在您离开键盘时将状态设置为"离开" — 无需移动鼠标、按下任何键或留下任何可见痕迹。
+
+━━━ 工作原理 ━━━
+
+Microsoft Teams 通过浏览器事件和页面可见性 API 检测非活动状态。当您切换标签页、最小化窗口或停止交互时，Teams 会悄悄将您的状态更改为"离开"。
+
+Teams Keep Active 在浏览器级别修补这些检测机制：
+• 覆盖页面可见性 API，使 Teams 始终将标签页视为可见
+• 覆盖 document.hasFocus()，使 Teams 始终认为窗口处于焦点状态
+• 仅在您真正空闲且在计划时间内时，每 45 秒发送一次静默的合成指针事件
+
+所有操作都在 Teams 标签页内运行。无后台进程、无外部服务器、不收集数据。
 
 ━━━ 功能 ━━━
 
-按天设置计划: 为每天设置独立的活跃时间段。
-跨零点时间段: 完全支持跨零点的时间范围（如 22:00 -> 06:00）。
-主开关: 无需卸载即可立即禁用扩展。
-实时设置: 更改立即生效。
-无视觉干扰: 屏幕上没有任何移动或闪烁。
-跨设备同步: 设置通过相同 Google 账号的 Chrome 配置文件同步。
+按天计划：为每周每天设置独立的活跃时间。启用周一至周五 9:00–18:00，周末关闭。
+跨午夜时间段完全支持（如 22:00–06:00）。
+主开关：无需卸载即可立即禁用。
+快速预设：一键应用"工作周"、"始终活跃"或"关闭"。
+键盘快捷键：使用 Ctrl+Shift+K（Mac 为 Cmd+Shift+K）切换。
+徽章显示：非活跃时图标显示"OFF"。
+计划结束通知：活跃时间结束时的可选桌面提醒。
+导入/导出：JSON 格式备份和还原。
+活动统计：显示今日活跃分钟数。
+支持 20 种语言。实时设置。零视觉干扰。
 
 ━━━ 兼容性 ━━━
 
-支持 Teams 网页版和 Teams PWA（Chrome/Edge）。
-不支持 Teams 桌面应用（Electron 版）。
+支持：Teams Web (teams.microsoft.com)、Teams Personal (teams.live.com)、Teams PWA — Chrome、Edge、Brave、Arc、Opera
+不支持：Teams 桌面应用（基于 Electron）。Teams 标签页必须保持打开。
 
 ━━━ 隐私 ━━━
 
-不收集任何数据。设置通过 chrome.storage.sync 本地存储。源代码在 GitHub 上开放。
-
-━━━ 权限 ━━━
-
-storage: 用于保存和同步设置。
+不收集数据。不发送网络请求。设置通过 chrome.storage.sync 本地存储。源代码在 GitHub 上开放。

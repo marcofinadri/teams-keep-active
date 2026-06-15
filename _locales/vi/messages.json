@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "Đã lưu ✓"
+  },
+  "labelPresets": {
+    "message": "Cài đặt nhanh"
+  },
+  "presetWorkWeek": {
+    "message": "Tuần làm việc"
+  },
+  "presetAlwaysOn": {
+    "message": "Luôn hoạt động"
+  },
+  "presetOff": {
+    "message": "Tắt"
+  },
+  "labelNotify": {
+    "message": "Thông báo khi tạm dừng"
+  },
+  "descNotify": {
+    "message": "Cảnh báo màn hình khi giờ hoạt động kết thúc"
+  },
+  "labelTools": {
+    "message": "Công cụ"
+  },
+  "btnExport": {
+    "message": "Xuất"
+  },
+  "btnImport": {
+    "message": "Nhập"
+  },
+  "importError": {
+    "message": "Tệp không hợp lệ"
+  },
+  "notifPaused": {
+    "message": "Đã tạm dừng — ngoài giờ hoạt động"
+  },
+  "labelActivity": {
+    "message": "Hoạt động hôm nay"
   }
 }

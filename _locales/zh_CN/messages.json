@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "已保存 ✓"
+  },
+  "labelPresets": {
+    "message": "快速预设"
+  },
+  "presetWorkWeek": {
+    "message": "工作周"
+  },
+  "presetAlwaysOn": {
+    "message": "始终活跃"
+  },
+  "presetOff": {
+    "message": "关闭"
+  },
+  "labelNotify": {
+    "message": "暂停时通知"
+  },
+  "descNotify": {
+    "message": "活跃时间结束时发送桌面提醒"
+  },
+  "labelTools": {
+    "message": "工具"
+  },
+  "btnExport": {
+    "message": "导出"
+  },
+  "btnImport": {
+    "message": "导入"
+  },
+  "importError": {
+    "message": "无效文件"
+  },
+  "notifPaused": {
+    "message": "已暂停 — 不在活跃时段"
+  },
+  "labelActivity": {
+    "message": "今日活跃"
   }
 }

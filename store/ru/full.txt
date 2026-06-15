@@ -1,23 +1,34 @@
-Teams Keep Active predotvrashaet ustanovku statusa «Net na meste» v Microsoft Teams kogda vy othodite ot klaviatury, bez dvizheniya myshi i vidimyh izmenenij.
+Teams Keep Active предотвращает переключение статуса Microsoft Teams в режим «Нет на месте» при отходе от клавиатуры — без движения мыши, нажатий клавиш и видимых следов.
 
-━━━ FUNKCII ━━━
+━━━ КАК РАБОТАЕТ ━━━
 
-Raspisanie po dnjam: Ustanovite nezavisimye aktivnye chasy dlya kajdogo dnya nedeli.
-Nochnie intervaly: Podderzhivayutsya intervaly peresekayushie polnoch (napr. 22:00 -> 06:00).
-Glavny vyklyuchatel: Otkluchite rasshirenie mgnovenno bez udaleniya.
-Nastrojki v realnom vremeni: Izmeneniya vstupayut v silu nemedlenno.
-Bez vizualnyh pomeh: Nichego ne dvigaetsya na ekrane.
-Sinkhronizaciya: Nastrojki sinhroniziruyutsya cherez uchetnye zapisi Google Chrome.
+Microsoft Teams определяет неактивность через события браузера и Page Visibility API. При переключении вкладок, сворачивании окна или прекращении взаимодействия Teams тихо меняет статус на «Нет на месте».
 
-━━━ SOVMESTIMOST ━━━
+Teams Keep Active исправляет эти механизмы обнаружения на уровне браузера:
+• Переопределяет Page Visibility API, чтобы Teams всегда видел вкладку открытой
+• Переопределяет document.hasFocus(), чтобы Teams видел окно всегда в фокусе
+• Отправляет тихое синтетическое событие указателя каждые 45 секунд — только при реальной неактивности
 
-Rabotaet s Teams web i Teams PWA v Chrome/Edge.
-Ne rabotaet s desktopnym prilozheniem Teams (Electron).
+Всё работает внутри вкладки Teams. Без фоновых процессов, внешних серверов и сбора данных.
 
-━━━ KONFIDENCIALNOST ━━━
+━━━ ВОЗМОЖНОСТИ ━━━
 
-Dannye ne sobirrayutsya. Nastrojki hranyatsya lokalno. Iskhodny kod otkryt na GitHub.
+Расписание по дням: Независимые активные часы для каждого дня. Включите пн–пт 9:00–18:00.
+Ночные интервалы: Интервалы, пересекающие полночь, полностью поддерживаются.
+Главный переключатель: Отключите расширение мгновенно без удаления.
+Быстрые настройки: Один клик для «Рабочая неделя», «Всегда активен» или «Выключить».
+Горячая клавиша: Переключение через Ctrl+Shift+K (Cmd+Shift+K на Mac).
+Бейдж: Иконка показывает «OFF» в неактивном состоянии.
+Уведомление: Опциональное уведомление при завершении активных часов.
+Импорт / Экспорт: Резервная копия расписания в JSON.
+Статистика активности: Количество минут активности сегодня.
+Синхронизация между устройствами. 20 языков.
 
-━━━ RAZRESHENIYA ━━━
+━━━ СОВМЕСТИМОСТЬ ━━━
 
-storage: dlya sohraneniya i sinhronizacii nastroek.
+Работает с: Teams Web (teams.microsoft.com), Teams Personal (teams.live.com), Teams PWA — Chrome, Edge, Brave, Arc, Opera.
+Не работает с: Teams Desktop App (Electron). Вкладка Teams должна оставаться открытой.
+
+━━━ КОНФИДЕНЦИАЛЬНОСТЬ ━━━
+
+Данные не собираются. Сетевые запросы не выполняются. Настройки хранятся локально. Исходный код открыт на GitHub.

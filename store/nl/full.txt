@@ -13,17 +13,23 @@ Everything runs inside the Teams tab itself. No background processes, no externa
 
 ━━━ FEATURES ━━━
 
-Per-day scheduling: Set independent active hours for each day of the week. Enable Monday-Friday 9:00-18:00, leave weekends off, or configure any combination you need.
+Per-day scheduling: Set independent active hours for each day of the week. Enable Monday–Friday 9:00–18:00, leave weekends off, or configure any combination you need.
 Overnight ranges: Ranges that cross midnight are fully supported (e.g. 22:00 to 06:00).
 Master on/off switch: Disable the extension instantly without uninstalling it.
-Real-time settings: Changes take effect immediately.
+Quick presets: One-click apply for "Work week", "Always on", or "Turn off".
+Keyboard shortcut: Toggle on/off with Ctrl+Shift+K (Cmd+Shift+K on Mac) — no need to open the popup.
+Badge indicator: The toolbar icon shows "OFF" when inactive so you always know the current state at a glance.
+Schedule notifications: Opt-in desktop alert when active hours end.
+Import / Export: Back up your schedule to a JSON file and restore it on any device.
+Activity stats: See how many minutes Teams Keep Active has been running today.
+Real-time settings: Changes take effect immediately — no tab reload needed.
 Zero visual interference: Nothing moves on screen.
 Synced across devices: Settings sync across all Chrome profiles signed in to the same Google account.
 20 languages supported: English, Italian, German, French, Spanish, Portuguese, Russian, Japanese, Korean, Chinese Simplified, Arabic, Bengali, Hindi, Indonesian, Dutch, Polish, Thai, Turkish, Ukrainian, Vietnamese.
 
 ━━━ COMPATIBILITY ━━━
 
-Works with: Microsoft Teams web app (teams.microsoft.com) in Chrome, Edge, Brave, Arc, Opera and Teams PWA.
+Works with: Microsoft Teams web app (teams.microsoft.com), Teams Personal (teams.live.com), and Teams PWA — in Chrome, Edge, Brave, Arc, and Opera.
 Does not work with: Microsoft Teams Desktop App (Electron-based).
 Note: The Teams tab must remain open.
 
@@ -33,4 +39,6 @@ No data collected. No network requests. Settings stored locally via chrome.stora
 
 ━━━ PERMISSIONS ━━━
 
-storage: to save and sync your schedule settings. No other permissions requested.
+storage: to save and sync your schedule settings.
+alarms: to check schedule transitions every minute and update the badge.
+notifications: to send an optional desktop alert when active hours end.

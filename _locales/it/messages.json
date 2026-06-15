@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "Salvato ✓"
+  },
+  "labelPresets": {
+    "message": "Preset rapidi"
+  },
+  "presetWorkWeek": {
+    "message": "Settimana lavorativa"
+  },
+  "presetAlwaysOn": {
+    "message": "Sempre attivo"
+  },
+  "presetOff": {
+    "message": "Spegni"
+  },
+  "labelNotify": {
+    "message": "Notifica alla pausa"
+  },
+  "descNotify": {
+    "message": "Avviso desktop alla fine degli orari attivi"
+  },
+  "labelTools": {
+    "message": "Strumenti"
+  },
+  "btnExport": {
+    "message": "Esporta"
+  },
+  "btnImport": {
+    "message": "Importa"
+  },
+  "importError": {
+    "message": "File non valido"
+  },
+  "notifPaused": {
+    "message": "In pausa — fuori dagli orari attivi"
+  },
+  "labelActivity": {
+    "message": "Attivo oggi"
   }
 }

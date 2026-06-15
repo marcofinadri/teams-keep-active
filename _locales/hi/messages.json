@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "सहेजा गया ✓"
+  },
+  "labelPresets": {
+    "message": "त्वरित प्रीसेट"
+  },
+  "presetWorkWeek": {
+    "message": "कार्य सप्ताह"
+  },
+  "presetAlwaysOn": {
+    "message": "हमेशा सक्रिय"
+  },
+  "presetOff": {
+    "message": "बंद करें"
+  },
+  "labelNotify": {
+    "message": "रुकने पर सूचना दें"
+  },
+  "descNotify": {
+    "message": "सक्रिय घंटे समाप्त होने पर डेस्कटॉप अलर्ट"
+  },
+  "labelTools": {
+    "message": "उपकरण"
+  },
+  "btnExport": {
+    "message": "निर्यात"
+  },
+  "btnImport": {
+    "message": "आयात"
+  },
+  "importError": {
+    "message": "अमान्य फ़ाइल"
+  },
+  "notifPaused": {
+    "message": "रुका हुआ — सक्रिय घंटों के बाहर"
+  },
+  "labelActivity": {
+    "message": "आज सक्रिय"
   }
 }

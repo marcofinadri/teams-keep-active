@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "Saved ✓"
+  },
+  "labelPresets": {
+    "message": "Quick presets"
+  },
+  "presetWorkWeek": {
+    "message": "Work week"
+  },
+  "presetAlwaysOn": {
+    "message": "Always on"
+  },
+  "presetOff": {
+    "message": "Turn off"
+  },
+  "labelNotify": {
+    "message": "Notify when paused"
+  },
+  "descNotify": {
+    "message": "Desktop alert when active hours end"
+  },
+  "labelTools": {
+    "message": "Tools"
+  },
+  "btnExport": {
+    "message": "Export"
+  },
+  "btnImport": {
+    "message": "Import"
+  },
+  "importError": {
+    "message": "Invalid settings file"
+  },
+  "notifPaused": {
+    "message": "Paused — outside active hours"
+  },
+  "labelActivity": {
+    "message": "Active today"
   }
 }

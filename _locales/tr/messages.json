@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "Kaydedildi ✓"
+  },
+  "labelPresets": {
+    "message": "Hızlı önayarlar"
+  },
+  "presetWorkWeek": {
+    "message": "Çalışma haftası"
+  },
+  "presetAlwaysOn": {
+    "message": "Her zaman aktif"
+  },
+  "presetOff": {
+    "message": "Kapat"
+  },
+  "labelNotify": {
+    "message": "Duraklatmada bildir"
+  },
+  "descNotify": {
+    "message": "Aktif saatler bittiğinde masaüstü uyarısı"
+  },
+  "labelTools": {
+    "message": "Araçlar"
+  },
+  "btnExport": {
+    "message": "Dışa aktar"
+  },
+  "btnImport": {
+    "message": "İçe aktar"
+  },
+  "importError": {
+    "message": "Geçersiz dosya"
+  },
+  "notifPaused": {
+    "message": "Duraklatıldı — aktif saatlerin dışında"
+  },
+  "labelActivity": {
+    "message": "Bugün aktif"
   }
 }

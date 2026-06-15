@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "Сохранено ✓"
+  },
+  "labelPresets": {
+    "message": "Быстрые настройки"
+  },
+  "presetWorkWeek": {
+    "message": "Рабочая неделя"
+  },
+  "presetAlwaysOn": {
+    "message": "Всегда активен"
+  },
+  "presetOff": {
+    "message": "Выключить"
+  },
+  "labelNotify": {
+    "message": "Уведомить при паузе"
+  },
+  "descNotify": {
+    "message": "Уведомление при окончании активных часов"
+  },
+  "labelTools": {
+    "message": "Инструменты"
+  },
+  "btnExport": {
+    "message": "Экспорт"
+  },
+  "btnImport": {
+    "message": "Импорт"
+  },
+  "importError": {
+    "message": "Неверный файл"
+  },
+  "notifPaused": {
+    "message": "Пауза — вне активных часов"
+  },
+  "labelActivity": {
+    "message": "Активен сегодня"
   }
 }

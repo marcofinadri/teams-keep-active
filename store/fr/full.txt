@@ -1,23 +1,35 @@
-Teams Keep Active empeche Microsoft Teams de definir votre statut sur Absent lorsque vous vous eloignez du clavier, sans bouger la souris ni laisser de trace visible.
+Teams Keep Active empêche Microsoft Teams de définir votre statut sur Absent lorsque vous vous éloignez du clavier — sans déplacer la souris, appuyer sur des touches ou laisser de traces visibles.
 
-━━━ FONCTIONNALITES ━━━
+━━━ COMMENT ÇA MARCHE ━━━
 
-Planification par jour: Definissez des heures actives independantes pour chaque jour de la semaine.
-Plages nocturnes: Les plages qui franchissent minuit sont supportees (ex. 22:00 -> 06:00).
-Interrupteur principal: Desactivez l'extension instantanement.
-Parametres en temps reel: Les modifications prennent effet immediatement.
-Aucune interference visuelle: Rien ne bouge a l'ecran.
-Synchronisation: Les parametres se synchronisent via le meme compte Google.
+Microsoft Teams détecte l'inactivité via les événements du navigateur et la Page Visibility API. Quand vous changez d'onglet, réduisez la fenêtre ou arrêtez d'interagir, Teams change silencieusement votre statut en Absent.
 
-━━━ COMPATIBILITE ━━━
+Teams Keep Active corrige ces mécanismes au niveau du navigateur :
+• Remplace la Page Visibility API pour que Teams voie toujours l'onglet comme visible
+• Remplace document.hasFocus() pour que Teams voie toujours la fenêtre comme active
+• Envoie un événement pointeur synthétique silencieux toutes les 45 secondes — uniquement lors d'une véritable inactivité et dans les heures planifiées
 
-Fonctionne avec Teams web et Teams PWA sur Chrome/Edge.
-Ne fonctionne pas avec l'application de bureau Teams (Electron).
+Tout s'exécute dans l'onglet Teams lui-même. Aucun processus en arrière-plan, aucun serveur externe, aucune donnée collectée.
 
-━━━ CONFIDENTIALITE ━━━
+━━━ FONCTIONNALITÉS ━━━
 
-Aucune donnee collectee. Parametres stockes localement. Code source ouvert sur GitHub.
+Planification par jour : Heures actives indépendantes pour chaque jour. Activez lun–ven 9h–18h, laissez les weekends libres.
+Plages nocturnes : Les plages traversant minuit sont supportées (ex. 22h–06h).
+Interrupteur principal : Désactivez l'extension instantanément sans désinstallation.
+Réglages rapides : Un clic pour "Semaine de travail", "Toujours actif" ou "Désactiver".
+Raccourci clavier : Basculer avec Ctrl+Shift+K (Cmd+Shift+K sur Mac).
+Badge : L'icône affiche "OFF" quand inactif.
+Notifications de fin de plage : Alerte bureau optionnelle à la fin des heures actives.
+Importation / Exportation : Sauvegarde en JSON et restauration sur n'importe quel appareil.
+Statistiques d'activité : Durée d'activité aujourd'hui.
+Paramètres en temps réel. Aucune interférence visuelle. Synchronisé entre appareils. 20 langues.
 
-━━━ AUTORISATIONS ━━━
+━━━ COMPATIBILITÉ ━━━
 
-storage: pour sauvegarder et synchroniser les parametres.
+Fonctionne avec : Teams Web (teams.microsoft.com), Teams Personal (teams.live.com), Teams PWA — Chrome, Edge, Brave, Arc, Opera.
+Ne fonctionne pas avec : Teams Desktop App (Electron).
+Remarque : L'onglet Teams doit rester ouvert.
+
+━━━ CONFIDENTIALITÉ ━━━
+
+Aucune donnée collectée. Aucune requête réseau. Paramètres stockés localement via chrome.storage.sync. Code source ouvert sur GitHub.

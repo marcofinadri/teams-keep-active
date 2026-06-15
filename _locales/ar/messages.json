@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "تم الحفظ ✓"
+  },
+  "labelPresets": {
+    "message": "إعدادات سريعة"
+  },
+  "presetWorkWeek": {
+    "message": "أسبوع العمل"
+  },
+  "presetAlwaysOn": {
+    "message": "دائماً نشط"
+  },
+  "presetOff": {
+    "message": "إيقاف"
+  },
+  "labelNotify": {
+    "message": "إشعار عند الإيقاف"
+  },
+  "descNotify": {
+    "message": "تنبيه سطح المكتب عند انتهاء ساعات النشاط"
+  },
+  "labelTools": {
+    "message": "أدوات"
+  },
+  "btnExport": {
+    "message": "تصدير"
+  },
+  "btnImport": {
+    "message": "استيراد"
+  },
+  "importError": {
+    "message": "ملف غير صالح"
+  },
+  "notifPaused": {
+    "message": "إيقاف مؤقت — خارج ساعات النشاط"
+  },
+  "labelActivity": {
+    "message": "نشط اليوم"
   }
 }

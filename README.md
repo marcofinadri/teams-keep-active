@@ -8,14 +8,21 @@ Available for Chrome, Edge, Brave, Arc, Opera, and all Chromium-based browsers.
 
 ## Features
 
-- **Per-day scheduling** — independent on/off + time range for each day of the week
-- **Overnight ranges** — ranges that cross midnight work correctly (e.g. 22:00 → 06:00)
-- **Master toggle** — disable instantly without uninstalling
-- **Badge indicator** — toolbar icon shows current active state at a glance
-- **Real-time sync** — changes take effect immediately; no tab reload needed
-- **Zero visual interference** — nothing moves on screen, no keystrokes, no cursor jumps
-- **20 languages** — auto-detected from browser locale (AR, BN, DE, EN, ES, FR, HI, ID, IT, JA, KO, NL, PL, PT, RU, TH, TR, UK, VI, ZH_CN)
-- **12 h / 24 h** — overnight hint and day names adapt to the user's locale automatically
+| Feature | Description |
+|---|---|
+| **Per-day scheduling** | Independent on/off + time range for each day of the week |
+| **Overnight ranges** | Ranges that cross midnight work correctly (e.g. 22:00 → 06:00) |
+| **Quick presets** | One-click: Work week, Always on, Turn off |
+| **Keyboard shortcut** | Ctrl+Shift+K / ⌘⇧K to toggle without opening the popup |
+| **Master toggle** | Disable instantly without uninstalling |
+| **Badge indicator** | Toolbar icon shows "OFF" when inactive |
+| **Schedule notifications** | Optional desktop alert when active hours end |
+| **Import / Export** | Back up settings to JSON and restore on any device |
+| **Activity stats** | Today's active-minutes counter in the popup |
+| **Real-time sync** | Changes take effect immediately; no tab reload needed |
+| **Zero visual interference** | Nothing moves on screen, no keystrokes, no cursor jumps |
+| **20 languages** | Auto-detected from browser locale (AR, BN, DE, EN, ES, FR, HI, ID, IT, JA, KO, NL, PL, PT, RU, TH, TR, UK, VI, ZH_CN) |
+| **12 h / 24 h** | Overnight hint and day names adapt to the user's locale automatically |
 
 ---
 
@@ -65,15 +72,22 @@ Everything runs **inside the Teams tab**. No background HTTP requests, no extern
 
 ---
 
+## Keyboard shortcut
+
+The default shortcut is **Ctrl+Shift+K** (Windows/Linux) or **⌘⇧K** (Mac).  
+You can change it at `chrome://extensions/shortcuts`.
+
+---
+
 ## Project structure
 
 ```
 teams-keep-active/
-├── manifest.json          # Extension manifest (MV3)
+├── manifest.json          # Extension manifest (MV3, v1.5.0)
 ├── content.js             # Injected into Teams pages
 ├── popup.html             # Extension popup UI
-├── popup.js               # Popup logic + i18n
-├── background.js          # Service worker — badge updates
+├── popup.js               # Popup logic + i18n + presets + import/export
+├── background.js          # Service worker — badge, notifications, stats
 ├── icons/                 # PNG icons (16, 32, 48, 128 px)
 ├── _locales/              # Chrome i18n message files (20 languages)
 │   └── {lang}/messages.json
@@ -89,7 +103,7 @@ teams-keep-active/
 
 ## Privacy
 
-No data is collected. No network requests are made. Settings are stored locally via `chrome.storage.sync`. See [privacy-policy.md](privacy-policy.md) for details.
+No data is collected. No network requests are made. Settings are stored locally via `chrome.storage.sync`. Activity stats are stored via `chrome.storage.local` — they never leave your browser. See [privacy-policy.md](privacy-policy.md) for details.
 
 ---
 

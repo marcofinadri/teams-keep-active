@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "সংরক্ষিত ✓"
+  },
+  "labelPresets": {
+    "message": "দ্রুত প্রিসেট"
+  },
+  "presetWorkWeek": {
+    "message": "কার্যদিবস"
+  },
+  "presetAlwaysOn": {
+    "message": "সর্বদা সক্রিয়"
+  },
+  "presetOff": {
+    "message": "বন্ধ করুন"
+  },
+  "labelNotify": {
+    "message": "বিরতিতে বিজ্ঞপ্তি দিন"
+  },
+  "descNotify": {
+    "message": "সক্রিয় সময় শেষে ডেস্কটপ সতর্কতা"
+  },
+  "labelTools": {
+    "message": "সরঞ্জাম"
+  },
+  "btnExport": {
+    "message": "রপ্তানি"
+  },
+  "btnImport": {
+    "message": "আমদানি"
+  },
+  "importError": {
+    "message": "অবৈধ ফাইল"
+  },
+  "notifPaused": {
+    "message": "বিরতি — সক্রিয় সময়ের বাইরে"
+  },
+  "labelActivity": {
+    "message": "আজ সক্রিয়"
   }
 }

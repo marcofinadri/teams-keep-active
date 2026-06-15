@@ -50,5 +50,41 @@
   },
   "savedOk": {
     "message": "Збережено ✓"
+  },
+  "labelPresets": {
+    "message": "Швидкі налаштування"
+  },
+  "presetWorkWeek": {
+    "message": "Робочий тиждень"
+  },
+  "presetAlwaysOn": {
+    "message": "Завжди активний"
+  },
+  "presetOff": {
+    "message": "Вимкнути"
+  },
+  "labelNotify": {
+    "message": "Повідомити при паузі"
+  },
+  "descNotify": {
+    "message": "Сповіщення після завершення активних годин"
+  },
+  "labelTools": {
+    "message": "Інструменти"
+  },
+  "btnExport": {
+    "message": "Експорт"
+  },
+  "btnImport": {
+    "message": "Імпорт"
+  },
+  "importError": {
+    "message": "Невірний файл"
+  },
+  "notifPaused": {
+    "message": "Призупинено — поза активними годинами"
+  },
+  "labelActivity": {
+    "message": "Активний сьогодні"
   }
 }

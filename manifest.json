@@ -2,9 +2,9 @@
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "default_locale": "en",
-  "permissions": ["storage", "alarms"],
+  "permissions": ["storage", "alarms", "notifications"],
   "icons": {
     "16":  "icons/icon16.png",
     "32":  "icons/icon32.png",
@@ -22,6 +22,15 @@
       "32":  "icons/icon32.png",
       "48":  "icons/icon48.png",
       "128": "icons/icon128.png"
+    }
+  },
+  "commands": {
+    "toggle-active": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K"
+      },
+      "description": "Toggle Teams Keep Active on/off"
     }
   },
   "content_scripts": [

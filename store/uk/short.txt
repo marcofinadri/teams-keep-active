@@ -1,1 +1,1 @@
-Utrymuye status Microsoft Teams yak Aktyvnyi — planuyte za dniamy ta hodynamy.
+Підтримує статус Teams Активним — розклад, налаштування, ярлик, бейдж і статистика.

@@ -1,1 +1,1 @@
-Utrzymuje status Microsoft Teams jako Aktywny — planuj wedlug dnia i godziny.
+Utrzymuje status Teams jako Aktywny — harmonogram, szybkie ustawienia, skrót, badge i statystyki.
