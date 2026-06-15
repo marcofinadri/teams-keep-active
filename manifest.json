@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Teams Keep Active",
   "version": "1.1.0",
-  "description": "Keeps Microsoft Teams status active by preventing idle detection.",
+  "description": "Prevents Microsoft Teams from setting your status to Away.",
   "permissions": ["storage"],
   "action": {
     "default_popup": "popup.html",

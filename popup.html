@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <style>
@@ -14,25 +14,24 @@
     }
 
     h1 {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: .04em;
+      letter-spacing: .06em;
       text-transform: uppercase;
-      color: #9b9bc8;
-      margin-bottom: 14px;
+      color: #6668a0;
+      margin-bottom: 16px;
     }
 
     .row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
-    label { font-size: 14px; }
+    .row label:first-child { font-size: 14px; }
 
-    /* Toggle switch */
-    .switch { position: relative; width: 38px; height: 22px; }
+    .switch { position: relative; width: 38px; height: 22px; flex-shrink: 0; }
     .switch input { opacity: 0; width: 0; height: 0; }
     .slider {
       position: absolute; inset: 0;
@@ -53,45 +52,58 @@
     input:checked + .slider { background: #6264a7; }
     input:checked + .slider::before { transform: translateX(16px); }
 
-    /* Time inputs */
-    .schedule-block {
-      background: #2a2a40;
-      border-radius: 8px;
-      padding: 12px;
-      margin-bottom: 14px;
-      display: none;
+    hr {
+      border: none;
+      border-top: 1px solid #2a2a40;
+      margin-bottom: 16px;
     }
-    .schedule-block.visible { display: block; }
 
-    .time-row {
-      display: flex;
+    h2 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #6668a0;
+      margin-bottom: 12px;
+    }
+
+    .time-grid {
+      display: grid;
+      grid-template-columns: 40px 1fr;
       align-items: center;
-      justify-content: space-between;
+      gap: 8px 12px;
       margin-bottom: 8px;
     }
-    .time-row:last-child { margin-bottom: 0; }
 
-    .time-row span { font-size: 13px; color: #9b9bc8; }
+    .time-grid span {
+      font-size: 13px;
+      color: #9b9bc8;
+    }
 
     input[type="time"] {
-      background: #1f1f2e;
+      background: #2a2a40;
       border: 1px solid #3a3a5c;
       border-radius: 6px;
       color: #e0e0f0;
       font-size: 14px;
-      padding: 4px 8px;
-      width: 100px;
+      padding: 5px 8px;
       cursor: pointer;
+      width: 100%;
     }
     input[type="time"]:focus {
       outline: none;
       border-color: #6264a7;
     }
+    input[type="time"]:disabled {
+      opacity: .35;
+      cursor: default;
+    }
 
     .hint {
       font-size: 11px;
       color: #6668a0;
-      margin-top: 6px;
+      margin-bottom: 16px;
+      line-height: 1.5;
     }
 
     button {
@@ -121,34 +133,35 @@
   <h1>Teams Keep Active</h1>
 
   <div class="row">
-    <label for="toggle">Attivo</label>
+    <label for="toggle">Enabled</label>
     <label class="switch">
       <input type="checkbox" id="toggle" checked />
       <span class="slider"></span>
     </label>
   </div>
 
+  <hr />
+
+  <h2>Active Hours</h2>
+
   <div class="row">
-    <label for="useSchedule">Fascia oraria</label>
+    <label for="useSchedule">Limit to a time range</label>
     <label class="switch">
       <input type="checkbox" id="useSchedule" />
       <span class="slider"></span>
     </label>
   </div>
 
-  <div class="schedule-block" id="scheduleBlock">
-    <div class="time-row">
-      <span>Dalle</span>
-      <input type="time" id="startTime" value="09:00" />
-    </div>
-    <div class="time-row">
-      <span>Alle</span>
-      <input type="time" id="endTime" value="18:00" />
-    </div>
-    <p class="hint">Funziona anche su fasce a cavallo della mezzanotte (es. 22:00 – 06:00).</p>
+  <div class="time-grid">
+    <span>From</span>
+    <input type="time" id="startTime" value="09:00" disabled />
+    <span>To</span>
+    <input type="time" id="endTime" value="18:00" disabled />
   </div>
 
-  <button id="save">Salva</button>
+  <p class="hint">Overnight ranges are supported (e.g. 22:00 – 06:00).</p>
+
+  <button id="save">Save</button>
   <div id="status"></div>
 
   <script src="popup.js"></script>
